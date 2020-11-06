@@ -37,10 +37,11 @@ public class AllWords {
 
     }
 
-    public ArrayList<Word> getiWords() {
-        for(int i = 0 ; i < getiWords().size(); i ++ ){
+    public boolean checkForIWord(ArrayList<Word> f) {
+        for (int i = 0; i < f.size(); i++) {
 
         }
-        return meWords;
+
+        return false;
     }
 }
