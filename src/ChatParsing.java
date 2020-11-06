@@ -8,8 +8,8 @@ public class ChatParsing {
         This class is used to parse the user input and accept it
      */
     Scanner in = new Scanner(System.in);
-    Word w = new Word();
-    ArrayList<Word> listWord = new ArrayList<>();
+
+    ArrayList<Word> inputList = new ArrayList<>();
 
     String[] MeList = {"i'm", "im", "i", "me", "mine", "my"};
     String[] YouList = {"you", "youre", "your", "you're"};
@@ -28,12 +28,11 @@ public class ChatParsing {
         String[] msg = in.nextLine().split("\\W+");
 
         for(int i = 0 ; i < msg.length ; i++){
-            Word test = new Word();
-            test.setWord(msg[i]);
-            listWord.add(i, test);
+            Word test = new Word(msg[i], WordType.zero);
+            inputList.add(i, test);
         }
 
-        w.printWords(listWord);
+
 
         if (isMe(msg)) {
         } else if (isYou(msg)) {
@@ -42,6 +41,12 @@ public class ChatParsing {
             System.out.println("I don't understand your gibberish");
         }
 
+
+
+
+
+
+        inputList.clear();
     }
 
 

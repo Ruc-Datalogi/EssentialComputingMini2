@@ -1,3 +1,3 @@
 public enum WordType {
-    meWord ,youWord ,mood;
+    zero, meWord ,youWord ,moodWord, swearWord;
 }

@@ -7,17 +7,29 @@ public class Word {
 
 
 
-    public void setWord(String word) {
+    public Word(String word, WordType wordType) {
         this.word = word;
+        this.wordType = wordType;
     }
+
+
+    public WordType getWordType(){
+        return this.wordType;
+    }
+
 
     public void setWordType(WordType wordType) {
         this.wordType = wordType;
     }
 
-    public WordType getWordType(Word s){
-        return wordType;
+    public boolean equalsWord(Word f){
+        if(this.word == f.word){
+            this.wordType = f.wordType;
+            return true;
+        }
+        return false;
     }
+
 
     public String getWord() {
         return word;
