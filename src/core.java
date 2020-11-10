@@ -13,65 +13,29 @@ public class core {
 
         allKeys = new ArrayList<QuestionKey>();
         LineReader ourLineReader = new LineReader("./src/questions.txt");
-        String[] TextData=ourLineReader.openFile();
+        String[] TextData = ourLineReader.openFile();
 
-        for(String s : TextData){
+        for (String s : TextData) {
             processScriptLine(s);
         }
-        for(QuestionKey key : allKeys){
+        for (QuestionKey key : allKeys) {
             System.out.println(key.toString());
         }
 
-        String[] questions = {
-                "Hello I am Eve, nice to meet you!",
-                "How is the weather", "Ahh nice, what's your name",
-                "That's beautiful name, how old are you?",
-                "Hmm interesting, so what's your occupation"
-        };
-        QuestionKey nameKey = new QuestionKey("name");
-        QuestionDecomp nameDecomp = new QuestionDecomp("your");
-        QuestionDecomp theirName = new QuestionDecomp("my");
-        theirName.addAnswer("That's a beautiful name");
-        nameDecomp.addAnswer("My name is Eva");
-        nameKey.addDecomp(nameDecomp);
-        nameKey.addDecomp(theirName);
 
-        QuestionKey sadKey = new QuestionKey("sad");
-        String[] imStrings = {"I'm","im","I am"};
-        QuestionDecomp meSad = new QuestionDecomp(imStrings);
-        meSad.addAnswer("I'm very sorry to hear that");
-        sadKey.addDecomp(meSad);
-
-
-
-
-        //ChatParsing myChatParser = new ChatParsing();
-        for (int i = 0; i < 2; i++) {
-            String line = in.nextLine();
-            String[] msg = line.split("\\W+");
-            if (nameKey.hasKeyWord(msg)) {
-                System.out.println(nameKey.getAnswer(msg));
-            }
-            if (sadKey.hasKeyWord(msg)){
-                System.out.println(sadKey.getAnswer(msg));
-            }
-
-            //System.out.println(questions[i]);
-            //myChatParser.parseNextMessage();
-
-        }
     }
 
+
     //Method for reading each line of the script file.
-    static void processScriptLine(String line){
-        String words[]=line.split("\\W+");
-        if(line.matches("(.*)key:(.*)")){
+    static void processScriptLine(String line) {
+        String words[] = line.split("\\W+");
+        if (line.matches("(.*)key:(.*)")) {
             allKeys.add(new QuestionKey(words[1]));
             System.out.println("Created and added key with:" + words[1]);
-        }else if(line.matches("(.*)decomb(.*)")){
+        } else if (line.matches("(.*)decomb(.*)")) {
             //Let's assume we're working on the last added key?
             //TODO make it so we can add the whole regex string for decomp
-            allKeys.get(allKeys.size()-1).addDecomp(new QuestionDecomp(words[1]));
+            allKeys.get(allKeys.size() - 1).addDecomp(new QuestionDecomp(words[1]));
             System.out.println("Created and added decomp rule: " + words[1]);
         }
 
@@ -123,7 +87,8 @@ public class core {
             }
             return "Sorry I don't understand";
         }
-        public String toString(){
+
+        public String toString() {
             return "key: [" + keyWords.get(0) + "] ";
         }
 
@@ -136,7 +101,7 @@ public class core {
         QuestionDecomp(String[] newKeywords) {
             this.DecompRegs = new ArrayList<String>();
             this.answers = new ArrayList<String>();
-            for(String s : newKeywords){
+            for (String s : newKeywords) {
                 this.DecompRegs.add(s);
             }
         }
@@ -150,7 +115,7 @@ public class core {
 
         boolean hasDecomp(String[] msg) {
             for (String s : msg) {
-                for(String Decomp : DecompRegs){
+                for (String Decomp : DecompRegs) {
                     if (s.equalsIgnoreCase(Decomp)) {
                         return true;
                     }

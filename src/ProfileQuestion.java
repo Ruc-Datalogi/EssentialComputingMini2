@@ -2,10 +2,11 @@ public class ProfileQuestion {
     /*
         We use this class to accept queries and send queries about questions regarding a particular profile
      */
-    ProfileQuestion(){
+    ProfileQuestion() {
 
     }
-    void getQuestionForProfile(Profile thisProfile){
+
+    void getQuestionForProfile(Profile thisProfile) {
 
 
     }

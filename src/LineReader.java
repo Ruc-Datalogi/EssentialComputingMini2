@@ -1,7 +1,7 @@
 /*
     This class is for reading our script file
     we took a lot of inspiration from https://www.homeandlearn.co.uk/java/read_a_textfile_in_java.html
-    It takes an input string for the path
+    It takes an input string for the path and outputs the different lines in a string array
 */
 
 import java.io.*;
@@ -9,13 +9,13 @@ import java.io.*;
 public class LineReader {
     private String path;
 
-    public String[] openFile() {
+    public String[] openFile() { // class for reading the different lines from the textfile
         String[] failedGet = new String[]{"-1"};
-        String[] textData;
+        String[] textData; // the string array of all lines
 
         try {
-            FileReader fr = new FileReader(path);
-            BufferedReader textReader = new BufferedReader(fr);
+            FileReader fr = new FileReader(path); // reads single char
+            BufferedReader textReader = new BufferedReader(fr); // for reading a whole line
 
             int numberOfLines = readLines();
             textData = new String[numberOfLines];
@@ -25,29 +25,22 @@ public class LineReader {
             }
 
             textReader.close();
-
-            for(int i = 0 ; i < numberOfLines ;i++){
-                System.out.println(textData[i]);
-            }
-
             return textData;
         } catch (IOException e) {
             e.getMessage();
         }
 
 
-        System.out.println("Wrong path ");
-        for(int i = 0 ; i < failedGet.length ; i++){
-            System.out.print(failedGet[i]);
-        }
+        System.out.println("Wrong path "); // wrong path
+        System.out.println(failedGet[0]);
         return failedGet;
     }
 
-    public LineReader(String file_path) {
+    public LineReader(String file_path) { // constructor for file path
         path = file_path;
     }
 
-    private int readLines() throws IOException {
+    private int readLines() throws IOException { // for getting the amount of lines tos read
         FileReader file_lines = new FileReader(path);
         BufferedReader bf = new BufferedReader(file_lines);
 
