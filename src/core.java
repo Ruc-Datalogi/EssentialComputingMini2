@@ -13,6 +13,10 @@ public class core {
 
         allKeys = new ArrayList<QuestionKey>();
         processScriptLine("key: because");
+        LineReader ourLineReader = new LineReader("./src/questions.txt");
+        ourLineReader.openFile();
+
+
         String[] questions = {
                 "Hello I am Eve, nice to meet you!",
                 "How is the weather", "Ahh nice, what's your name",
