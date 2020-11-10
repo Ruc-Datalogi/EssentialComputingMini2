@@ -3,17 +3,22 @@ import java.util.Scanner;
 
 public class core {
     /*
-        The core shouldn't be doing much runtime work in itself, instead we use seperate classes and objects to deligate
+            The core shouldn't be doing much runtime work in itself, instead we use seperate classes and objects to deligate
 
-     */
+         */
+    static ArrayList<QuestionKey> allKeys;
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        LineReader ln = new LineReader("C:\\Users\\marti\\Desktop\\EssentialComputingMini2\\src\\questions.txt");
-        ln.openFile();
 
-
-        /*
+        allKeys = new ArrayList<QuestionKey>();
+        processScriptLine("key: because");
+        String[] questions = {
+                "Hello I am Eve, nice to meet you!",
+                "How is the weather", "Ahh nice, what's your name",
+                "That's beautiful name, how old are you?",
+                "Hmm interesting, so what's your occupation"
+        };
         QuestionKey nameKey = new QuestionKey("name");
         QuestionDecomp nameDecomp = new QuestionDecomp("your");
         QuestionDecomp theirName = new QuestionDecomp("my");
@@ -46,8 +51,20 @@ public class core {
             //myChatParser.parseNextMessage();
 
         }
+    }
 
-         */
+    //Method for reading each line of the script file.
+    static void processScriptLine(String line){
+        String words[]=line.split("\\W+");
+        if(line.matches("(.*)key:(.*)")){
+            allKeys.add(new QuestionKey(words[1]));
+        }else if(line.matches("(.*)decomb(.*)")){
+            //Let's assume we're working on the last added key?
+            //TODO make it so we can add the whole regex string for decomp
+            allKeys.get(allKeys.size()-1).addDecomp(new QuestionDecomp(words[1]));
+        }
+
+
     }
 
     static class QuestionKey {
