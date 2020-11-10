@@ -12,10 +12,15 @@ public class core {
         Scanner in = new Scanner(System.in);
 
         allKeys = new ArrayList<QuestionKey>();
-        processScriptLine("key: because");
         LineReader ourLineReader = new LineReader("./src/questions.txt");
-        ourLineReader.openFile();
+        String[] TextData=ourLineReader.openFile();
 
+        for(String s : TextData){
+            processScriptLine(s);
+        }
+        for(QuestionKey key : allKeys){
+            System.out.println(key.toString());
+        }
 
         String[] questions = {
                 "Hello I am Eve, nice to meet you!",
@@ -62,10 +67,12 @@ public class core {
         String words[]=line.split("\\W+");
         if(line.matches("(.*)key:(.*)")){
             allKeys.add(new QuestionKey(words[1]));
+            System.out.println("Created and added key with:" + words[1]);
         }else if(line.matches("(.*)decomb(.*)")){
             //Let's assume we're working on the last added key?
             //TODO make it so we can add the whole regex string for decomp
             allKeys.get(allKeys.size()-1).addDecomp(new QuestionDecomp(words[1]));
+            System.out.println("Created and added decomp rule: " + words[1]);
         }
 
 
@@ -116,7 +123,9 @@ public class core {
             }
             return "Sorry I don't understand";
         }
-
+        public String toString(){
+            return "key: [" + keyWords.get(0) + "] ";
+        }
 
     }
 
