@@ -32,21 +32,26 @@ public class core {
     static void processScriptLine(String line) {
         String words[] = line.split("\\W+");
         if (line.matches("(.*)key:(.*)")) {
+            //System.out.println("Processing line:"+line);
             QuestionKey tempKey=new QuestionKey(words[1]);
             lastKey=tempKey;
             allKeys.add(tempKey);
-            System.out.println("Created and added key with:" + words[1]);
+            //System.out.println("Created and added key with:" + words[1]);
         } else if (line.matches("(.*)decomp(.*)")) {
             //Let's assume we're working on the last added key?
             //TODO make it so we can add the whole regex string for decomp
-            QuestionDecomp tempDecomp=new QuestionDecomp(words[2]);
+            QuestionDecomp tempDecomp;
+            //Full on spaghetti code to allow empty or wildcard words?
+            if(words.length<3){
+                tempDecomp=new QuestionDecomp("*");
+            }else{
+                tempDecomp=new QuestionDecomp(words[2]);
+            }
             lastDecomp=tempDecomp;
             lastKey.addDecomp(tempDecomp);
             //System.out.println("Is lastkey actually last key?: " + lastKey.equals(allKeys.get(allKeys.size()-1)));
-            System.out.println("Created and added decomp rule: " + words[1]);
-            for(String W :words){
-                System.out.println("Word: " + W);
-            }
+            //System.out.println("Created and added decomp rule: " + words[1]);
+
         }else if (line.matches("(.*)ans:(.*)")){
             if (lastDecomp!=null) {
                 lastDecomp.addAnswer(line);

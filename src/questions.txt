@@ -8,10 +8,6 @@ key: i
     decomp: *believe*
         ans: What do you believe?
         ans: Why do you believe that?
-key:
-    decomp: * *
-        ans: I'm not sure i understand
-        ans: Can you try to rephrase the sentence
 key: you
     decomp: *are*
         ans: We're talking about you not me !
@@ -39,7 +35,3 @@ key: apoligise
     decomp: * *
         ans: You don't have to apologize for anything
         ans: Apologies are not necessary when talking to me
-key:
-key:
-key:
-key:
