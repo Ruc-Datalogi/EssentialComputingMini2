@@ -1,6 +1,45 @@
-key: sad
-    decomp: * *
+key: i
+    decomp: *sad*
         ans: Why are you sad?
-key: happy
-    decomp: * *
+        ans: I'm sorry to hear that, can you explain why you are sad ?
+    decomp: *happy*
         ans: What's going on in your life?
+        ans: I'm glad to hear that, what makes you happy right now ?
+    decomp: *believe*
+        ans: What do you believe?
+        ans: Why do you believe that?
+key:
+    decomp: * *
+        ans: I'm not sure i understand
+        ans: Can you try to rephrase the sentence
+key: you
+    decomp: *are*
+        ans: We're talking about you not me !
+        ans: I'm not what you are thinking i am !
+    decomp: *computer*
+        ans: I'm not a computer :)
+    decomp: *ai*
+        ans: I'm not an AI hehe
+key: hello
+    decomp: * *
+        ans: Nice to meet you
+        ans: Lovely to meet you
+key: your
+    decomp: * *
+        ans: You shouldn't be concerned about me.
+        ans: We are talking about me not you
+key: sorry
+    decomp: *im*
+        ans: you don't have to feel sorry for that
+        ans: why are you sorry?
+    decomp: * *
+        ans: don't feel sorry feel
+        ans: don't say that
+key: apoligise
+    decomp: * *
+        ans: You don't have to apologize for anything
+        ans: Apologies are not necessary when talking to me
+key:
+key:
+key:
+key:
