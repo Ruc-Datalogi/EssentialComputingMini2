@@ -9,12 +9,11 @@ public class core {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        String[] questions = {
-                "Hello I am Eve, nice to meet you!",
-                "How is the weather", "Ahh nice, what's your name",
-                "That's beautiful name, how old are you?",
-                "Hmm interesting, so what's your occupation"
-        };
+        LineReader ln = new LineReader("C:\\Users\\marti\\Desktop\\EssentialComputingMini2\\src\\questions.txt");
+        ln.openFile();
+
+
+        /*
         QuestionKey nameKey = new QuestionKey("name");
         QuestionDecomp nameDecomp = new QuestionDecomp("your");
         QuestionDecomp theirName = new QuestionDecomp("my");
@@ -47,6 +46,8 @@ public class core {
             //myChatParser.parseNextMessage();
 
         }
+
+         */
     }
 
     static class QuestionKey {

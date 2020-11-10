@@ -8,8 +8,7 @@ public class ChatParsing {
         This class is used to parse the user input and accept it
      */
     Scanner in = new Scanner(System.in);
-    AllWords all = new AllWords();
-    ArrayList<Word> inputList = new ArrayList<>();
+
 
     String[] MeList = {"i'm", "im", "i", "me", "mine", "my"};
     String[] YouList = {"you", "youre", "your", "you're"};
@@ -27,14 +26,6 @@ public class ChatParsing {
         //taking nextline as string and then using split with a regex pattern match to split it into words
         String[] msg = in.nextLine().split("\\W+");
 
-        for (int i = 0; i < msg.length; i++) {
-            Word test = new Word(msg[i], WordType.zero);
-            inputList.add(i, test);
-        }
-        if(all.checkForIWord(inputList)){
-            System.out.println("it is me :)");
-        }
-
 
 
 
@@ -51,7 +42,7 @@ public class ChatParsing {
 */
 
 
-        inputList.clear();
+
     }
 
 

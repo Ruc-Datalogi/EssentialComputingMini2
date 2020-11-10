@@ -1,0 +1,6 @@
+key: sad
+    decomp: * *
+        ans: Why are you sad?
+key: happy
+    decomp: * *
+        ans: What's going on in your life?
