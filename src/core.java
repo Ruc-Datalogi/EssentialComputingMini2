@@ -7,6 +7,8 @@ public class core {
 
          */
     static ArrayList<QuestionKey> allKeys;
+    static QuestionKey lastKey;
+    static QuestionDecomp lastDecomp;
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -30,14 +32,29 @@ public class core {
     static void processScriptLine(String line) {
         String words[] = line.split("\\W+");
         if (line.matches("(.*)key:(.*)")) {
-            allKeys.add(new QuestionKey(words[1]));
+            QuestionKey tempKey=new QuestionKey(words[1]);
+            lastKey=tempKey;
+            allKeys.add(tempKey);
             System.out.println("Created and added key with:" + words[1]);
-        } else if (line.matches("(.*)decomb(.*)")) {
+        } else if (line.matches("(.*)decomp(.*)")) {
             //Let's assume we're working on the last added key?
             //TODO make it so we can add the whole regex string for decomp
-            allKeys.get(allKeys.size() - 1).addDecomp(new QuestionDecomp(words[1]));
+            QuestionDecomp tempDecomp=new QuestionDecomp(words[2]);
+            lastDecomp=tempDecomp;
+            lastKey.addDecomp(tempDecomp);
+            //System.out.println("Is lastkey actually last key?: " + lastKey.equals(allKeys.get(allKeys.size()-1)));
             System.out.println("Created and added decomp rule: " + words[1]);
+            for(String W :words){
+                System.out.println("Word: " + W);
+            }
+        }else if (line.matches("(.*)ans:(.*)")){
+            if (lastDecomp!=null) {
+                lastDecomp.addAnswer(line);
+            }else{
+                System.out.println("Tried to add answer to a null lastDecomp");
+            }
         }
+
 
 
     }
@@ -89,7 +106,11 @@ public class core {
         }
 
         public String toString() {
-            return "key: [" + keyWords.get(0) + "] ";
+            String output="key: [" + keyWords.get(0) + "] " ;
+            for(QuestionDecomp Dec:decompsForKey){
+                output+=Dec.toString();
+            }
+            return output;
         }
 
     }
@@ -130,6 +151,16 @@ public class core {
 
         String getFirstAnswer() {
             return answers.get(0);
+        }
+        public String toString(){
+            String output="";
+            for (String Decoms : DecompRegs){
+                output+="Dec: [" + Decoms + "]";
+            }
+            for(String answ : answers){
+                output+="Ans: [" + answ + "]";
+            }
+            return output;
         }
 
 
