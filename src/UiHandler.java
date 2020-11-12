@@ -50,6 +50,9 @@ public class UiHandler extends Frame implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER & (tfInput.getText().length()>0)) {
             taDisplay.append("User: " + tfInput.getText() + "\n");
+
+            taDisplay.append("Eve: " + core.findAnswerToString(tfInput.getText()) + "\n");
+
             tfInput.setText ("");
         }
     }

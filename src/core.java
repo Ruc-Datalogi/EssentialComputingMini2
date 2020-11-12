@@ -23,6 +23,7 @@ public class core {
         for (QuestionKey key : allKeys) {
             System.out.println(key.toString());
         }
+        UiHandler ui=new UiHandler();
 
 
     }
@@ -62,6 +63,18 @@ public class core {
 
 
 
+    }
+    static String findAnswerToString(String line){
+        String words[] = line.split("\\W+");
+        String ans="";
+        for(QuestionKey k : allKeys){
+            ans=k.getAnswer(words);
+            if(ans.length()>2){
+                return ans;
+
+            }
+        }
+        return ans;
     }
 
     static class QuestionKey {
