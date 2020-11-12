@@ -70,13 +70,15 @@ public class core {
         String words[] = line.split("\\W+");
         String ans="";
         for(QuestionKey k : allKeys){
-            ans=k.getAnswer(words);
-            if(ans.length()>2){
-                return ans;
+            if(k.hasKeyWord(words)) {
+                ans = k.getAnswer(words);
+                if (ans.length() > 2) {
+                    return ans;
 
+                }
             }
         }
-        return ans;
+        return "Sorry I don't understand";
     }
 
     static class QuestionKey {
