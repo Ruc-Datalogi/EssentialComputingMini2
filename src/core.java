@@ -12,6 +12,8 @@ public class core {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        UiHandler ui = new UiHandler();
+
 
         allKeys = new ArrayList<QuestionKey>();
         LineReader ourLineReader = new LineReader("./src/questions.txt");
@@ -23,7 +25,7 @@ public class core {
         for (QuestionKey key : allKeys) {
             System.out.println(key.toString());
         }
-        UiHandler ui=new UiHandler();
+
 
 
     }
@@ -164,12 +166,15 @@ public class core {
         }
 
         void addAnswer(String ans) {
+            ans = ans.trim();
+            ans = ans.replace("ans: ", "");
             answers.add(ans);
         }
 
         String getFirstAnswer() {
             return answers.get(0);
         }
+
         public String toString(){
             String output="";
             for (String Decoms : DecompRegs){

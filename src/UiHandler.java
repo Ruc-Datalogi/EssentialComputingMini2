@@ -4,11 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
+import java.util.Timer;
 
 public class UiHandler extends Frame implements KeyListener {
     private TextField tfInput;
     public TextArea taDisplay;
-
+    private int delay;
     // THIS IS COPYPASTORINOET FROM https://www3.ntu.edu.sg/home/ehchua/programming/java/j4a_gui.html
     // FROM 3.6 EXAMPLE 6 "KeyEvent and KeyListener Interface"
 
@@ -19,6 +20,7 @@ public class UiHandler extends Frame implements KeyListener {
                 System.exit(0);
             }
         });
+
         setLayout(new FlowLayout()); // "super" frame sets to FlowLayout
 
         add(new Label("Enter Text: "));
@@ -35,11 +37,6 @@ public class UiHandler extends Frame implements KeyListener {
         setSize(500, 600);         // "super" Frame sets initial size
         setVisible(true);          // "super" Frame shows
 
-    }
-
-    // The entry main() method
-    public static void main(String[] args) {
-        new UiHandler();  // Let the constructor do the job
     }
 
     /**

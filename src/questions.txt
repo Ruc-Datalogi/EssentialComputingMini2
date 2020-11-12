@@ -1,13 +1,23 @@
-key: i
+key: im
     decomp: *sad*
         ans: Why are you sad?
         ans: I'm sorry to hear that, can you explain why you are sad ?
     decomp: *happy*
         ans: What's going on in your life?
         ans: I'm glad to hear that, what makes you happy right now ?
+key: i
     decomp: *believe*
         ans: What do you believe?
         ans: Why do you believe that?
+    decomp: *love*
+        ans: I love that too
+        ans: That's also one of my favorite things
+    decomp: *don't*
+        ans: Why don't you know?
+        ans: Can you tell me more?
+    decomp: *candy*
+        ans: Candy is one of my favorite things
+        ans:
 key: you
     decomp: *are*
         ans: We're talking about you not me !
@@ -26,12 +36,21 @@ key: your
         ans: We are talking about me not you
 key: sorry
     decomp: *im*
-        ans: you don't have to feel sorry for that
-        ans: why are you sorry?
+        ans: You don't have to feel sorry for that
+        ans: Why are you sorry?
     decomp: * *
-        ans: don't feel sorry feel
-        ans: don't say that
+        ans: Don't feel sorry feel
+        ans: Don't say that
 key: apoligise
     decomp: * *
         ans: You don't have to apologize for anything
         ans: Apologies are not necessary when talking to me
+key: my
+    decomp: *name*
+        ans: My name is Eve what's yours ?
+        ans: That's a wonderful name
+    decomp: *family*
+        ans: How is your family ?
+        ans: I don't have a family.
+    decomp: *computer*
+        ans: I love computers.
