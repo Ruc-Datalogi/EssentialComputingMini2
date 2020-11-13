@@ -5,7 +5,7 @@ public class core {
     /*
             The core shouldn't be doing much runtime work in itself, instead we use seperate classes and objects to deligate
 
-         */
+    */
     static ArrayList<QuestionKey> allKeys;
     static QuestionKey lastKey;
     static QuestionDecomp lastDecomp;
@@ -66,6 +66,7 @@ public class core {
 
 
     }
+
     static String findAnswerToString(String line){
         String words[] = line.split("\\W+");
         String ans="";
@@ -121,7 +122,7 @@ public class core {
             for (QuestionDecomp D : decompsForKey) {
                 //System.out.println("For");
                 if (D.hasDecomp(msg)) {
-                    return D.getFirstAnswer();
+                    return D.getNextAnswer();
                 }
             }
             return "Sorry I don't understand";
@@ -140,7 +141,7 @@ public class core {
     static class QuestionDecomp {
         ArrayList<String> DecompRegs;
         ArrayList<String> answers;
-
+        int count = -1;
         QuestionDecomp(String[] newKeywords) {
             this.DecompRegs = new ArrayList<String>();
             this.answers = new ArrayList<String>();
@@ -176,6 +177,14 @@ public class core {
         String getFirstAnswer() {
             return answers.get(0);
         }
+
+        String getNextAnswer() {
+            count++;
+            if(count == answers.size()){
+                count = -1 ;
+            }
+
+            return answers.get(count);}
 
         public String toString(){
             String output="";

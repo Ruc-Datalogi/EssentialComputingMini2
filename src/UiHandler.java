@@ -36,7 +36,7 @@ public class UiHandler extends Frame implements KeyListener {
         setTitle("E.V.E v0.1"); // "super" Frame sets title
         setSize(500, 600);         // "super" Frame sets initial size
         setVisible(true);          // "super" Frame shows
-
+        taDisplay.append("Hello im Eve ! how are you ?" + "\n");
     }
 
     /**

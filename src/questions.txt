@@ -5,6 +5,10 @@ key: im
     decomp: *happy*
         ans: What's going on in your life?
         ans: I'm glad to hear that, what makes you happy right now ?
+    decomp: *good*
+        ans: That's great to hear , what's your name ?
+        ans: That's lovely
+    decomp: *bad*
 key: i
     decomp: *believe*
         ans: What do you believe?
@@ -13,6 +17,9 @@ key: i
         ans: I love that too
         ans: That's also one of my favorite things
     decomp: *don't*
+        ans: Why don't you know?
+        ans: Can you tell me more?
+    decomp: *dont*
         ans: Why don't you know?
         ans: Can you tell me more?
     decomp: *candy*
@@ -47,10 +54,17 @@ key: apoligise
         ans: Apologies are not necessary when talking to me
 key: my
     decomp: *name*
-        ans: My name is Eve what's yours ?
+        ans: That's a lovely name
         ans: That's a wonderful name
     decomp: *family*
         ans: How is your family ?
         ans: I don't have a family.
     decomp: *computer*
         ans: I love computers.
+key: name
+    decomp: *your*
+        ans: My name is Eve :)
+
+key: fuck
+    decomp: *you*
+        ans: Stop swearing!
