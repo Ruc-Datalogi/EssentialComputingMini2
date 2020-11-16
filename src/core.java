@@ -9,6 +9,7 @@ public class core {
     static ArrayList<QuestionKey> allKeys;
     static QuestionKey lastKey;
     static QuestionDecomp lastDecomp;
+    static int countForQuestions = -1;
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -27,7 +28,6 @@ public class core {
         }
 
 
-
     }
 
 
@@ -36,8 +36,8 @@ public class core {
         String words[] = line.split("\\W+");
         if (line.matches("(.*)key:(.*)")) {
             //System.out.println("Processing line:"+line);
-            QuestionKey tempKey=new QuestionKey(words[1]);
-            lastKey=tempKey;
+            QuestionKey tempKey = new QuestionKey(words[1]);
+            lastKey = tempKey;
             allKeys.add(tempKey);
             //System.out.println("Created and added key with:" + words[1]);
         } else if (line.matches("(.*)decomp(.*)")) {
@@ -45,103 +45,64 @@ public class core {
             //TODO make it so we can add the whole regex string for decomp
             QuestionDecomp tempDecomp;
             //Full on spaghetti code to allow empty or wildcard words?
-            if(words.length<3){
-                tempDecomp=new QuestionDecomp("*");
-            }else{
-                tempDecomp=new QuestionDecomp(words[2]);
+            if (words.length < 3) {
+                tempDecomp = new QuestionDecomp("*");
+            } else {
+                tempDecomp = new QuestionDecomp(words[2]);
             }
-            lastDecomp=tempDecomp;
+            lastDecomp = tempDecomp;
             lastKey.addDecomp(tempDecomp);
             //System.out.println("Is lastkey actually last key?: " + lastKey.equals(allKeys.get(allKeys.size()-1)));
             //System.out.println("Created and added decomp rule: " + words[1]);
 
-        }else if (line.matches("(.*)ans:(.*)")){
-            if (lastDecomp!=null) {
+        } else if (line.matches("(.*)ans:(.*)")) {
+            if (lastDecomp != null) {
                 lastDecomp.addAnswer(line);
-            }else{
+            } else {
                 System.out.println("Tried to add answer to a null lastDecomp");
             }
         }
 
 
-
     }
 
-    static String findAnswerToString(String line){
+    static String findAnswerToString(String line) {
         String words[] = line.split("\\W+");
-        String ans="";
-        for(QuestionKey k : allKeys){
-            if(k.hasKeyWord(words)) {
+        String commonWords[] = {"What's your name again ?", "How's your family doing ?", "How's school ?"};
+        String ans = "";
+        int count = 0;
+
+        for (QuestionKey k : allKeys) {
+            if (k.hasKeyWord(words)) {
                 ans = k.getAnswer(words);
                 if (ans.length() > 2) {
-                    return ans;
-
-                }
-            }
-        }
-        return "Sorry I don't understand";
-    }
-
-    static class QuestionKey {
-        ArrayList<String> keyWords;
-        ArrayList<QuestionDecomp> decompsForKey;
-
-        QuestionKey(String[] newKeywords) {
-            this.decompsForKey = new ArrayList<QuestionDecomp>();
-            this.keyWords = new ArrayList<String>();
-            for (String s : newKeywords) {
-                this.keyWords.add(s);
-            }
-
-        }
-
-        QuestionKey(String keyWord) {
-            this.keyWords = new ArrayList<String>();
-            this.keyWords.add(keyWord);
-            this.decompsForKey = new ArrayList<QuestionDecomp>();
-        }
-
-
-        boolean hasKeyWord(String[] line) {
-            for (int i = 0; i < line.length; i++) {
-                for (String keyWord : this.keyWords) {
-                    if (line[i].equalsIgnoreCase(keyWord)) {
-                        return true;
+                    count++;
+                    if(count == 5){
+                        count = 0;
+                        ans = ans + "feel free to ask me some questions";
+                        return ans;
                     }
+                    return ans;
                 }
             }
-            return false;
         }
 
-        //Add the decomp
-        void addDecomp(QuestionDecomp newDecomp) {
-            decompsForKey.add(newDecomp);
+
+        countForQuestions++;
+        if (countForQuestions == commonWords.length) {
+            System.out.println("hello");
+            countForQuestions = 0;
         }
 
-        String getAnswer(String[] msg) {
-            for (QuestionDecomp D : decompsForKey) {
-                //System.out.println("For");
-                if (D.hasDecomp(msg)) {
-                    return D.getNextAnswer();
-                }
-            }
-            return "Sorry I don't understand";
-        }
-
-        public String toString() {
-            String output="key: [" + keyWords.get(0) + "] " ;
-            for(QuestionDecomp Dec:decompsForKey){
-                output+=Dec.toString();
-            }
-            return output;
-        }
-
+        return commonWords[countForQuestions];
     }
+
 
     static class QuestionDecomp {
         ArrayList<String> DecompRegs;
         ArrayList<String> answers;
-        int count = -1;
+        int count = -1; // the function increments at the start
+
         QuestionDecomp(String[] newKeywords) {
             this.DecompRegs = new ArrayList<String>();
             this.answers = new ArrayList<String>();
@@ -157,7 +118,7 @@ public class core {
         }
 
 
-        boolean hasDecomp(String[] msg) {
+        boolean hasDecomp(String[] msg) { // check for decomp
             for (String s : msg) {
                 for (String Decomp : DecompRegs) {
                     if (s.equalsIgnoreCase(Decomp)) {
@@ -169,34 +130,34 @@ public class core {
         }
 
         void addAnswer(String ans) {
-            ans = ans.trim();
+            ans = ans.trim(); // removes spaces from the answer
             ans = ans.replace("ans: ", "");
             answers.add(ans);
         }
 
-        String getFirstAnswer() {
-            return answers.get(0);
-        }
 
         String getNextAnswer() {
             count++;
-            if(count == answers.size()){
-                count = -1 ;
+            if (count == answers.size()) {
+                count = 0;
             }
+            return answers.get(count);
+        }
 
-            return answers.get(count);}
 
-        public String toString(){
-            String output="";
-            for (String Decoms : DecompRegs){
-                output+="Dec: [" + Decoms + "]";
+        public String toString() {
+            String output = "";
+            for (String Decoms : DecompRegs) {
+                output += "Dec: [" + Decoms + "]";
             }
-            for(String answ : answers){
-                output+="Ans: [" + answ + "]";
+            for (String answ : answers) {
+                output += "Ans: [" + answ + "]";
             }
             return output;
         }
 
 
     }
+
+
 }

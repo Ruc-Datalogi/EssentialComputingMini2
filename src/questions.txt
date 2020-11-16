@@ -9,6 +9,17 @@ key: im
         ans: That's great to hear , what's your name ?
         ans: That's lovely
     decomp: *bad*
+key: i'm
+    decomp: *sad*
+        ans: Why are you sad?
+        ans: I'm sorry to hear that, can you explain why you are sad ?
+    decomp: *happy*
+        ans: What's going on in your life?
+        ans: I'm glad to hear that, what makes you happy right now ?
+    decomp: *good*
+        ans: That's great to hear , what's your name ?
+        ans: That's lovely
+    decomp: *bad*
 key: i
     decomp: *believe*
         ans: What do you believe?
@@ -24,7 +35,10 @@ key: i
         ans: Can you tell me more?
     decomp: *candy*
         ans: Candy is one of my favorite things
-        ans:
+    decomp: *study*
+        ans: That's wonderfull to hear what do you study ?
+    decomp: *work*
+        ans: Wow that's great what's you work ?
 key: you
     decomp: *are*
         ans: We're talking about you not me !
@@ -33,28 +47,42 @@ key: you
         ans: I'm not a computer :)
     decomp: *ai*
         ans: I'm not an AI hehe
+    decomp: *boyfriend*
+        ans: I'm up for grabs ;)
+    decomp: *girlfriend*
+        ans: I'm up for grabs ;)
+key: computerscience
+    decomp: *i*
+        ans: I love computersciene too it's my favorite subject.
 key: hello
     decomp: * *
         ans: Nice to meet you
         ans: Lovely to meet you
 key: your
-    decomp: * *
+    decomp: *are*
+        ans: You shouldn't be concerned about me.
+        ans: We are talking about me not you
+key: you'r
+    decomp: *are*
         ans: You shouldn't be concerned about me.
         ans: We are talking about me not you
 key: sorry
     decomp: *im*
         ans: You don't have to feel sorry for that
         ans: Why are you sorry?
-    decomp: * *
+    decomp: *i'm*
+        ans: You don't have to feel sorry for that
+        ans: Why are you sorry?
+    decomp: **
         ans: Don't feel sorry feel
         ans: Don't say that
-key: apoligise
+key: apologise
     decomp: * *
         ans: You don't have to apologize for anything
         ans: Apologies are not necessary when talking to me
 key: my
     decomp: *name*
-        ans: That's a lovely name
+        ans: That's a lovely name, what's your occupation ?
         ans: That's a wonderful name
     decomp: *family*
         ans: How is your family ?
@@ -64,7 +92,37 @@ key: my
 key: name
     decomp: *your*
         ans: My name is Eve :)
-
-key: fuck
+key: computer
     decomp: *you*
-        ans: Stop swearing!
+        ans: I'm not a computer
+key: what
+    decomp: *time*
+        ans: I don't know look at a clock
+key: how
+    decomp: *you*
+        ans: I'm good, how are you?
+        ans: I feel well, how are you feeling?
+    decomp: *i*
+        ans: Tell me more
+        ans: I don't know how you would do that
+    decomp: * *
+        ans: How is the right question, but i don't understand what you're asking about.
+key: hey
+    decomp: * *
+        ans: Nice to meet you
+        ans: Lovely to meet you
+    decomp: *how*
+        ans: I'm good, how are you?
+        ans: I feel well, how are you feeling?
+key: why
+    decomp: * *
+        ans: Because.
+    decomp: *are*
+        ans: I don't know why either..
+        ans: I'm not sure why
+    decomp: *is*
+        ans: I don't know why either..
+        ans: I'm not sure why
+    decomp: *do*
+        ans: I don't know why either..
+        ans: I'm not sure why, do you think i'm perfect?
