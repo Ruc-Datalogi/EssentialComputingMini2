@@ -1,21 +1,20 @@
+/*
+    This class is for generating the UI
+    The code was mostly taken from https://www3.ntu.edu.sg/home/ehchua/programming/java/j4a_gui.html
+    The class generates a window for the use to interact with EVE
+*/
 
-
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Arrays;
-import java.util.Timer;
+
 
 public class UiHandler extends Frame implements KeyListener {
-    private TextField tfInput;
-    public TextArea taDisplay;
-    private int delay;
-    // THIS IS COPYPASTORINOET FROM https://www3.ntu.edu.sg/home/ehchua/programming/java/j4a_gui.html
-    // FROM 3.6 EXAMPLE 6 "KeyEvent and KeyListener Interface"
+    private TextField tfInput; // for input
+    public TextArea taDisplay; // for displaying in the window
 
     public UiHandler() {
         addWindowListener(new WindowAdapter(){
-            public void windowClosing(WindowEvent e) {
+            public void windowClosing(WindowEvent e) { // for closing the window without crashing
                 dispose();
                 System.exit(0);
             }
@@ -29,22 +28,21 @@ public class UiHandler extends Frame implements KeyListener {
         taDisplay = new TextArea(30, 40); // 5 rows, 40 columns
         add(taDisplay);
 
-        tfInput.addKeyListener(this);
-        // tfInput TextField (source) fires KeyEvent.
-        // tfInput adds "this" object as a KeyEvent listener.
+        tfInput.addKeyListener(this); // for listening to input
 
-        setTitle("E.V.E v0.1"); // "super" Frame sets title
-        setSize(500, 600);         // "super" Frame sets initial size
-        setVisible(true);          // "super" Frame shows
+        setTitle("E.V.E v0.1"); // sets title
+        setSize(500, 600);  // sets initial size
+        setVisible(true);          //  Frame shows
+        setResizable(false); // non resizeable
         taDisplay.append("Hello im Eve ! how are you ?" + "\n");
     }
 
     /**
-     * KeyEvent handlers
+     * The three different KeyEvent handlers
      */
     // Called back when a key has been typed (pressed and released)
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void keyPressed(KeyEvent e) { // get input from user and the display answer
         if (e.getKeyCode() == KeyEvent.VK_ENTER & (tfInput.getText().length()>0)) {
             taDisplay.append("User: " + tfInput.getText() + "\n");
 
@@ -54,7 +52,8 @@ public class UiHandler extends Frame implements KeyListener {
         }
     }
 
-    // Not Used, but need to provide an empty body for compilation
+
+    // Not Used, but we still need to declare them because a keyevent listener has to implement these three methods
     @Override
     public void keyTyped(KeyEvent evt) {
     }
@@ -62,5 +61,7 @@ public class UiHandler extends Frame implements KeyListener {
     @Override
     public void keyReleased(KeyEvent evt) {
     }
+
+
 
 }

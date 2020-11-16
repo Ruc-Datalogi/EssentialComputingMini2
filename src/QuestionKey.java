@@ -5,7 +5,7 @@ public class QuestionKey {
     ArrayList<String> keyWords;
     ArrayList<core.QuestionDecomp> decompsForKey;
 
-    QuestionKey(String[] newKeywords) {
+    QuestionKey(String[] newKeywords) { //
         this.decompsForKey = new ArrayList<core.QuestionDecomp>();
         this.keyWords = new ArrayList<String>();
         for (String s : newKeywords) {
@@ -21,7 +21,7 @@ public class QuestionKey {
     }
 
 
-    boolean hasKeyWord(String[] line) {
+    boolean hasKeyWord(String[] line) { // check the input line for keyword
         for (int i = 0; i < line.length; i++) {
             for (String keyWord : this.keyWords) {
                 if (line[i].equalsIgnoreCase(keyWord)) {
@@ -33,11 +33,11 @@ public class QuestionKey {
     }
 
     //Add the decomp
-    void addDecomp(core.QuestionDecomp newDecomp) {
+    void addDecomp(core.QuestionDecomp newDecomp) { // add decomp word to key
         decompsForKey.add(newDecomp);
     }
 
-    String getAnswer(String[] msg) {
+    String getAnswer(String[] msg) { // get the next answer for the input
         for (core.QuestionDecomp D : decompsForKey) {
             //System.out.println("For");
             if (D.hasDecomp(msg)) {
@@ -47,7 +47,7 @@ public class QuestionKey {
         return "Sorry I don't understand";
     }
 
-    public String toString() {
+    public String toString() { // to string method for the keywords
         String output = "key: [" + keyWords.get(0) + "] ";
         for (core.QuestionDecomp Dec : decompsForKey) {
             output += Dec.toString();
@@ -56,4 +56,3 @@ public class QuestionKey {
     }
 
 }
-

@@ -6,10 +6,10 @@ public class core {
             The core shouldn't be doing much runtime work in itself, instead we use seperate classes and objects to deligate
 
     */
-    static ArrayList<QuestionKey> allKeys;
-    static QuestionKey lastKey;
+    static ArrayList<QuestionKey> allKeys; // Arraylist of all keys
+    static QuestionKey lastKey; //
     static QuestionDecomp lastDecomp;
-    static int countForQuestions = -1;
+    static int countForQuestions = -1; // if EVE doesnt understand she outputs question
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -34,13 +34,12 @@ public class core {
     //Method for reading each line of the script file.
     static void processScriptLine(String line) {
         String words[] = line.split("\\W+");
-        if (line.matches("(.*)key:(.*)")) {
-            //System.out.println("Processing line:"+line);
+        if (line.matches("(.*)key:(.*)")) { // check for if the line contains the word key and if so add to the keyList
             QuestionKey tempKey = new QuestionKey(words[1]);
             lastKey = tempKey;
             allKeys.add(tempKey);
             //System.out.println("Created and added key with:" + words[1]);
-        } else if (line.matches("(.*)decomp(.*)")) {
+        } else if (line.matches("(.*)decomp(.*)")) { // check for decomp and add to decompList
             //Let's assume we're working on the last added key?
             //TODO make it so we can add the whole regex string for decomp
             QuestionDecomp tempDecomp;
@@ -55,11 +54,11 @@ public class core {
             //System.out.println("Is lastkey actually last key?: " + lastKey.equals(allKeys.get(allKeys.size()-1)));
             //System.out.println("Created and added decomp rule: " + words[1]);
 
-        } else if (line.matches("(.*)ans:(.*)")) {
+        } else if (line.matches("(.*)ans:(.*)")) { // lastly add the answers
             if (lastDecomp != null) {
                 lastDecomp.addAnswer(line);
             } else {
-                System.out.println("Tried to add answer to a null lastDecomp");
+                System.out.println("Tried to add answer to a null last Decomp");
             }
         }
 
@@ -76,12 +75,6 @@ public class core {
             if (k.hasKeyWord(words)) {
                 ans = k.getAnswer(words);
                 if (ans.length() > 2) {
-                    count++;
-                    if(count == 5){
-                        count = 0;
-                        ans = ans + "feel free to ask me some questions";
-                        return ans;
-                    }
                     return ans;
                 }
             }
@@ -90,7 +83,6 @@ public class core {
 
         countForQuestions++;
         if (countForQuestions == commonWords.length) {
-            System.out.println("hello");
             countForQuestions = 0;
         }
 

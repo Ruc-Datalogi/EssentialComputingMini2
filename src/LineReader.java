@@ -13,7 +13,7 @@ public class LineReader {
         String[] failedGet = new String[]{"-1"};
         String[] textData; // the string array of all lines
 
-        try {
+        try { // we might not find the file so we use a try catch with IOexception
             FileReader fr = new FileReader(path); // reads single char
             BufferedReader textReader = new BufferedReader(fr); // for reading a whole line
 
@@ -26,12 +26,12 @@ public class LineReader {
 
             textReader.close();
             return textData;
-        } catch (IOException e) {
+        } catch (IOException e) { //
             e.getMessage();
         }
 
 
-        System.out.println("Wrong path g "); // wrong path
+        System.out.println("Wrong path "); // wrong path
         System.out.println(failedGet[0]);
         return failedGet;
     }
@@ -40,7 +40,7 @@ public class LineReader {
         path = file_path;
     }
 
-    private int readLines() throws IOException { // for getting the amount of lines tos read
+    private int readLines() throws IOException { // for getting the amount of lines to read from the textfile
         FileReader file_lines = new FileReader(path);
         BufferedReader bf = new BufferedReader(file_lines);
 
