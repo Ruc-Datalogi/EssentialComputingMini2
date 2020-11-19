@@ -62,6 +62,8 @@ key: your
     decomp: *are*
         ans: You shouldn't be concerned about me.
         ans: We are talking about me not you
+    decomp: *name*
+        ans: My name is Eve.
 key: you'r
     decomp: *are*
         ans: You shouldn't be concerned about me.
@@ -82,10 +84,10 @@ key: apologise
         ans: Apologies are not necessary when talking to me
 key: my
     decomp: *name*
-        ans: That's a lovely name, what's your occupation ?
+        ans: That's a lovely name, what's your occupation?
         ans: That's a wonderful name
     decomp: *family*
-        ans: How is your family ?
+        ans: How is your family?
         ans: I don't have a family.
     decomp: *computer*
         ans: I love computers.
@@ -126,3 +128,4 @@ key: why
     decomp: *do*
         ans: I don't know why either..
         ans: I'm not sure why, do you think i'm perfect?
+key: last

@@ -3,10 +3,10 @@ import java.util.ArrayList;
 public class QuestionKey {
 
     ArrayList<String> keyWords;
-    ArrayList<core.QuestionDecomp> decompsForKey;
+    ArrayList<QuestionDecomp> decompsForKey;
 
     QuestionKey(String[] newKeywords) { //
-        this.decompsForKey = new ArrayList<core.QuestionDecomp>();
+        this.decompsForKey = new ArrayList<QuestionDecomp>();
         this.keyWords = new ArrayList<String>();
         for (String s : newKeywords) {
             this.keyWords.add(s);
@@ -17,7 +17,7 @@ public class QuestionKey {
     QuestionKey(String keyWord) {
         this.keyWords = new ArrayList<String>();
         this.keyWords.add(keyWord);
-        this.decompsForKey = new ArrayList<core.QuestionDecomp>();
+        this.decompsForKey = new ArrayList<QuestionDecomp>();
     }
 
 
@@ -33,12 +33,12 @@ public class QuestionKey {
     }
 
     //Add the decomp
-    void addDecomp(core.QuestionDecomp newDecomp) { // add decomp word to key
+    void addDecomp(QuestionDecomp newDecomp) { // add decomp word to key
         decompsForKey.add(newDecomp);
     }
 
     String getAnswer(String[] msg) { // get the next answer for the input
-        for (core.QuestionDecomp D : decompsForKey) {
+        for (QuestionDecomp D : decompsForKey) {
             //System.out.println("For");
             if (D.hasDecomp(msg)) {
                 return D.getNextAnswer();
@@ -49,7 +49,7 @@ public class QuestionKey {
 
     public String toString() { // to string method for the keywords
         String output = "key: [" + keyWords.get(0) + "] ";
-        for (core.QuestionDecomp Dec : decompsForKey) {
+        for (QuestionDecomp Dec : decompsForKey) {
             output += Dec.toString();
         }
         return output;
