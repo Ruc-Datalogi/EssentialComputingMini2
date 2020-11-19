@@ -14,6 +14,7 @@ public class core {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         UiHandler ui = new UiHandler();
+
         allKeys = new ArrayList<QuestionKey>();
         LineReader ourLineReader = new LineReader("./src/questions.txt");
         String[] TextData = ourLineReader.openFile();
@@ -60,11 +61,11 @@ public class core {
     }
 
     static String findAnswerToString(String line) {
-        String words[] = line.split(" ");
-        for(int i = 0; i < words.length;i++){
-            System.out.println(words[i]);
-        }
-        String commonWords[] = {"What's your name again ?", "How's your family doing ?", "How's school ?"};
+        line = line.toLowerCase();
+        SynonymCheck sC = new SynonymCheck(); // checking for synonyms and replacing
+        line = sC.checkForSynonym(line);
+        String words[] = line.split(" "); // splitting the words by " "
+        String questionStarters[] = {"What's your name again ?", "How's your family doing ?", "How's school ?"};
         String ans = "";
         int count = 0;
 
@@ -79,11 +80,11 @@ public class core {
 
 
         countForQuestions++;
-        if (countForQuestions == commonWords.length) {
+        if (countForQuestions == questionStarters.length) {
             countForQuestions = 0;
         }
 
-        return commonWords[countForQuestions];
+        return questionStarters[countForQuestions];
     }
 
 

@@ -123,4 +123,6 @@ key: why
     decomp: *do*
         ans: I don't know why either..
         ans: I'm not sure why, do you think i'm perfect?
-key: last
+key: who
+    decomp: *are*
+        ans: Im a chatbot

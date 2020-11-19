@@ -4,8 +4,12 @@
     The class generates a window for the use to interact with EVE
 */
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 
 public class UiHandler extends Frame implements KeyListener {
