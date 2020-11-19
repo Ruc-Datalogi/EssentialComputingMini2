@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class core {
     /*
@@ -12,7 +11,6 @@ public class core {
     static int countForQuestions = -1; // if EVE doesnt understand she outputs question
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
         UiHandler ui = new UiHandler();
 
         allKeys = new ArrayList<QuestionKey>();
