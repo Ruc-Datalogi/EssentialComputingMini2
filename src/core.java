@@ -72,9 +72,7 @@ public class core {
         for (QuestionKey k : allKeys) {
             if (k.hasKeyWord(words)) {
                 ans = k.getAnswer(words);
-                if (ans.length() > 2) {
-                    return ans;
-                }
+                return ans;
             }
         }
 

@@ -1,14 +1,3 @@
-key: im
-    decomp: *sad*
-        ans: Why are you sad?
-        ans: I'm sorry to hear that, can you explain why you are sad ?
-    decomp: *happy*
-        ans: What's going on in your life?
-        ans: I'm glad to hear that, what makes you happy right now ?
-    decomp: *good*
-        ans: That's great to hear , what's your name ?
-        ans: That's lovely
-    decomp: *bad*
 key: i'm
     decomp: *sad*
         ans: Why are you sad?
@@ -20,7 +9,10 @@ key: i'm
         ans: That's great to hear , what's your name ?
         ans: That's lovely
     decomp: *bad*
+        ans: Why do you say that ?
 key: i
+    decomp: *computerscience*
+        ans: That is a really interesting field
     decomp: *believe*
         ans: What do you believe?
         ans: Why do you believe that?
@@ -64,17 +56,14 @@ key: your
     decomp: *name*
         ans: My name is Eve.
 key: sorry
-    decomp: *im*
-        ans: You don't have to feel sorry for that
-        ans: Why are you sorry?
     decomp: *i'm*
         ans: You don't have to feel sorry for that
         ans: Why are you sorry?
     decomp: **
-        ans: Don't feel sorry feel
+        ans: Don't feel sorry
         ans: Don't say that
 key: apologise
-    decomp: * *
+    decomp: *i*
         ans: You don't have to apologize for anything
         ans: Apologies are not necessary when talking to me
 key: my

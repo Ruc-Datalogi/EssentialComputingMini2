@@ -23,6 +23,9 @@ public class QuestionDecomp {
     boolean hasDecomp(String[] msg) { // check for decomp
         for (String s : msg) {
             for (String Decomp : DecompRegs) {
+                if(Decomp.equals("")){
+                    return true;
+                }
                 if (s.equalsIgnoreCase(Decomp)) {
                     return true;
                 }
@@ -49,7 +52,6 @@ public class QuestionDecomp {
     String getFirstAnswer(){
         return answers.get(0);
     }
-
 
     public String toString() {
         String output = "";

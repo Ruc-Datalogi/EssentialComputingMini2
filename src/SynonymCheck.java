@@ -7,4 +7,5 @@ public class SynonymCheck {
         System.out.println("i change " + line);
         return line;
     }
+
 }
