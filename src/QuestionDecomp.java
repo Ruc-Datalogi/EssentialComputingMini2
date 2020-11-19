@@ -46,6 +46,10 @@ public class QuestionDecomp {
         return answers.get(count);
     }
 
+    String getFirstAnswer(){
+        return answers.get(0);
+    }
+
 
     public String toString() {
         String output = "";

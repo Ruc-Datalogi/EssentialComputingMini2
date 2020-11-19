@@ -59,15 +59,10 @@ key: hello
         ans: Nice to meet you
         ans: Lovely to meet you
 key: your
-    decomp: *are*
         ans: You shouldn't be concerned about me.
         ans: We are talking about me not you
     decomp: *name*
         ans: My name is Eve.
-key: you'r
-    decomp: *are*
-        ans: You shouldn't be concerned about me.
-        ans: We are talking about me not you
 key: sorry
     decomp: *im*
         ans: You don't have to feel sorry for that

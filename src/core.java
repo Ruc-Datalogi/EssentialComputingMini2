@@ -25,22 +25,20 @@ public class core {
             System.out.println(key.toString());
         }
 
-
     }
 
     //Method for reading each line of the script file.
     static void processScriptLine(String line) {
-        String words[] = line.split("\\W+");
+        String words[] = line.split("\\s+");
         if (line.matches("(.*)key:(.*)")) { // check for if the line contains the word key and if so add to the keyList
             QuestionKey tempKey = new QuestionKey(words[1]);
             lastKey = tempKey;
             allKeys.add(tempKey);
             //System.out.println("Created and added key with:" + words[1]);
-        } else if (line.matches("(.*)decomp(.*)")) { // check for decomp and add to decompList
-            //Let's assume we're working on the last added key?
+        } else if (line.matches("(.*)decomp:(.*)")) { // check for decomp and add to decompList
             //TODO make it so we can add the whole regex string for decomp
             QuestionDecomp tempDecomp;
-            //Full on spaghetti code to allow empty or wildcard words?
+            words[2] = words[2].replaceAll("\\*",""); // remove * from the word
             if (words.length < 3) {
                 tempDecomp = new QuestionDecomp("*");
             } else {
@@ -62,7 +60,10 @@ public class core {
     }
 
     static String findAnswerToString(String line) {
-        String words[] = line.split("\\W+");
+        String words[] = line.split(" ");
+        for(int i = 0; i < words.length;i++){
+            System.out.println(words[i]);
+        }
         String commonWords[] = {"What's your name again ?", "How's your family doing ?", "How's school ?"};
         String ans = "";
         int count = 0;
@@ -84,9 +85,6 @@ public class core {
 
         return commonWords[countForQuestions];
     }
-
-
-
 
 
 }
