@@ -5,7 +5,7 @@ public class QuestionDecomp {
     ArrayList<String> answers;
     int count = -1; // the function increments at the start
 
-    QuestionDecomp(String[] newKeywords) {
+    QuestionDecomp(String[] newKeywords) { // unused constructor for handling arrays
         this.DecompRegs = new ArrayList<String>();
         this.answers = new ArrayList<String>();
         for (String s : newKeywords) {
@@ -13,7 +13,7 @@ public class QuestionDecomp {
         }
     }
 
-    QuestionDecomp(String Decomp) {
+    QuestionDecomp(String Decomp) { // constructor for QuestionDecomp
         this.DecompRegs = new ArrayList<String>();
         this.DecompRegs.add(Decomp);
         this.answers = new ArrayList<String>();
@@ -35,14 +35,14 @@ public class QuestionDecomp {
         return false;
     }
 
-    void addAnswer(String ans) {
+    void addAnswer(String ans) { // add answer
         ans = ans.trim(); // removes spaces from the answer
         ans = ans.replace("ans: ", "");
         answers.add(ans);
     }
 
 
-    String getNextAnswer() {
+    String getNextAnswer() { // if there is multiple answers
         count++;
         if (count == answers.size()) {
             count = 0;
@@ -54,7 +54,7 @@ public class QuestionDecomp {
         return answers.get(0);
     }
 
-    public String toString() {
+    public String toString() { // to string method for debugging
         String output = "";
         for (String Decoms : DecompRegs) {
             output += "Dec: [" + Decoms + "]";

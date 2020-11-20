@@ -9,12 +9,17 @@ key: happy
 key: good
     decomp: *i'm*
         ans: That's great to hear , what's your name?
-        ans: That's lovely
 key: have
     decomp: *boyfriend*
         ans: No i don't ;)
     decomp: *girlfriend*
         ans: No i don't ;)
+key: stressed
+    decomp: *i'm*
+        ans: That sucks can you tell me more about it?
+key: depressed
+    decomp: *i'm*
+        ans: Can you tell me more about it?
 key: computerscience
     decomp: *i*
         ans: That is a really interesting field
@@ -41,23 +46,21 @@ key: hello
 key: your
     decomp: *name*
         ans: My name is Eve.
-key: favorite
+key: favourite
     decomp: *show*
-        ans: My favorite show is Black Mirror
+        ans: My favourite show is Black Mirror
 key: sorry
     decomp: *i'm*
         ans: You don't have to feel sorry for that
         ans: Why are you sorry?
-    decomp: **
+    decomp: * *
         ans: Don't feel sorry
         ans: Don't say that
 key: my
     decomp: *name*
         ans: That's a lovely name, what's your occupation?
-        ans: That's a wonderful name
     decomp: *family*
         ans: How is your family?
-        ans: I don't have a family.
     decomp: *computer*
         ans: I love computers.
 key: computer
@@ -95,5 +98,67 @@ key: why
         ans: I don't know why either..
         ans: I'm not sure why, do you think i'm perfect?
 key: who
-    decomp: *are*
+    decomp: *you*
         ans: I'm a chatbot
+    decomp: *is*
+        ans: I don't know who is, maybe you could find out?
+key: dog
+    decomp: * *
+        ans: I love dogs too
+key: cat
+    decomp: * *
+        ans: I like dogs better?
+key: know
+    decomp: *what*
+        ans: Yes?
+    decomp: *do*
+        ans: I don't know, but i'm sure you could find out!
+    decomp: *how*
+        ans: I don't know how, but maybe why is the answer?
+key: dead
+    decomp: * *
+        ans: I'm really sorry about that
+key: doing
+    decomp: *good*
+        ans: That's great to hear what's your occupation?
+    decomp: *great*
+        ans: That's really lovely to hear what's your occupation?
+    decomp: *fine*
+        ans: Happy to hear that what's your occupation?
+    decomp: *poorly*
+        ans: I'm sorry about that tell me more
+    decomp: *badly*
+        ans: I'm sorry about that tell me more
+key: weather
+    decomp: * *
+        ans: The weather is great here
+key: acknowledge
+    decomp: * *
+        ans: Read a book! Those are great for knowledge
+    decomp: *you*
+        ans: Yeah, i guess i agree.
+key: message
+    decomp: *me*
+        ans: I'll message you
+    decomp: *you*
+        ans: Yeah, i received the message, thank you!
+    decomp: *the*
+        ans: Yeah, i've read it.
+key: text
+    decomp: *me*
+        ans: I'll text you
+    decomp: *you*
+        ans: Yeah, i received the text, thank you!
+    decomp: *the*
+        ans: Yeah, i've read it.
+key: goal
+    decomp: *my*
+        ans: You should follow that dream
+    decomp: *your*
+        ans: My goal is to walk around on earth
+key: proffesor
+    decomp: *i'm*
+        ans: Woaw that's cool what do you teach
+key: teach
+    decomp: *i*
+        ans: Woaw that's cool what do you teach
