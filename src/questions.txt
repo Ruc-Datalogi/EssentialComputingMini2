@@ -162,3 +162,8 @@ key: proffesor
 key: teach
     decomp: *i*
         ans: Woaw that's cool what do you teach
+key: old
+    decomp: *i'm*
+        ans: That's a nice age
+    decomp: *how*
+        ans: I'm 300 years old
