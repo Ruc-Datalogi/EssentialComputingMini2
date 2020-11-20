@@ -11,7 +11,6 @@ public class QuestionKey {
         for (String s : newKeywords) {
             this.keyWords.add(s);
         }
-
     }
 
     QuestionKey(String keyWord) {

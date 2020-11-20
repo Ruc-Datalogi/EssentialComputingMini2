@@ -62,8 +62,9 @@ public class core {
         line = line.toLowerCase();
         SynonymCheck sC = new SynonymCheck(); // checking for synonyms and replacing
         line = sC.checkForSynonym(line);
+        System.out.println("I insert " + line);
         String words[] = line.split(" "); // splitting the words by " "
-        String questionStarters[] = {"What's your name again ?", "How's your family doing ?", "How's school ?"};
+        String questionStarters[] = {"What's your name again?","What's your occupation",};
         String ans = "";
         int count = 0;
 

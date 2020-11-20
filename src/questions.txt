@@ -1,60 +1,49 @@
-key: i'm
-    decomp: *sad*
+key: sad
+    decomp: *i'm*
         ans: Why are you sad?
-        ans: I'm sorry to hear that, can you explain why you are sad ?
-    decomp: *happy*
+        ans: I'm sorry to hear that, can you explain why you are sad?
+key: happy
+    decomp: *i'm*
         ans: What's going on in your life?
-        ans: I'm glad to hear that, what makes you happy right now ?
-    decomp: *good*
-        ans: That's great to hear , what's your name ?
+        ans: I'm glad to hear that, what makes you happy right now?
+key: good
+    decomp: *i'm*
+        ans: That's great to hear , what's your name?
         ans: That's lovely
-    decomp: *bad*
-        ans: Why do you say that ?
-key: i
-    decomp: *computerscience*
-        ans: That is a really interesting field
-    decomp: *believe*
-        ans: What do you believe?
-        ans: Why do you believe that?
-    decomp: *love*
-        ans: I love that too
-        ans: That's also one of my favorite things
-    decomp: *don't*
-        ans: Why don't you know?
-        ans: Can you tell me more?
-    decomp: *dont*
-        ans: Why don't you know?
-        ans: Can you tell me more?
-    decomp: *candy*
-        ans: Candy is one of my favorite things
-    decomp: *study*
-        ans: That's wonderfull to hear what do you study ?
-    decomp: *work*
-        ans: Wow that's great what's you work ?
-key: you
-    decomp: *are*
-        ans: We're talking about you not me !
-        ans: I'm not what you are thinking i am !
-    decomp: *computer*
-        ans: I'm not a computer :)
-    decomp: *ai*
-        ans: I'm not an AI hehe
+key: have
     decomp: *boyfriend*
-        ans: I'm up for grabs ;)
+        ans: No i don't ;)
     decomp: *girlfriend*
-        ans: I'm up for grabs ;)
+        ans: No i don't ;)
 key: computerscience
     decomp: *i*
-        ans: I love computersciene too it's my favorite subject.
+        ans: That is a really interesting field
+key: love
+    decomp: *i*
+        ans: I love that too <3
+key: candy
+    decomp: *i*
+        ans: I love candy
+key: study
+    decomp: *computerscience*
+        ans: That's a really interesting subject, my favorite subject as well
+    decomp: *you*
+        ans: I study AI
+key: work
+    decomp: *i*
+        ans: Wow that's cool would love to that too
+    decomp: *hard*
+        ans: Why is that?
 key: hello
     decomp: * *
         ans: Nice to meet you
         ans: Lovely to meet you
 key: your
-        ans: You shouldn't be concerned about me.
-        ans: We are talking about me not you
     decomp: *name*
         ans: My name is Eve.
+key: favorite
+    decomp: *show*
+        ans: My favorite show is Black Mirror
 key: sorry
     decomp: *i'm*
         ans: You don't have to feel sorry for that
@@ -62,10 +51,6 @@ key: sorry
     decomp: **
         ans: Don't feel sorry
         ans: Don't say that
-key: apologise
-    decomp: *i*
-        ans: You don't have to apologize for anything
-        ans: Apologies are not necessary when talking to me
 key: my
     decomp: *name*
         ans: That's a lovely name, what's your occupation?
@@ -75,9 +60,6 @@ key: my
         ans: I don't have a family.
     decomp: *computer*
         ans: I love computers.
-key: name
-    decomp: *your*
-        ans: My name is Eve :)
 key: computer
     decomp: *you*
         ans: I'm not a computer
@@ -114,4 +96,4 @@ key: why
         ans: I'm not sure why, do you think i'm perfect?
 key: who
     decomp: *are*
-        ans: Im a chatbot
+        ans: I'm a chatbot

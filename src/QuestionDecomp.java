@@ -23,10 +23,11 @@ public class QuestionDecomp {
     boolean hasDecomp(String[] msg) { // check for decomp
         for (String s : msg) {
             for (String Decomp : DecompRegs) {
-                if(Decomp.equals("")){
+                System.out.println(DecompRegs);
+                if(Decomp.equals("")){ // if the keyword does not require a decomp word
                     return true;
                 }
-                if (s.equalsIgnoreCase(Decomp)) {
+                if (s.equalsIgnoreCase(Decomp)) { // check for decomp word in sentence
                     return true;
                 }
             }
