@@ -16,8 +16,10 @@ public class core {
     static QuestionDecomp lastDecomp;
     static int countForQuestions = -1; // if EVE doesnt understand she outputs question
     static String[] questionStartes = {"What's Your name again?", "What is your occupation?", "I'm confused, Dogs or cats? Which one do you prefer?", "Are you okay?", "Hmm, mind if i change the subject?", "...", "Okay, so i got to know, "};
+    static Profile userProfile;
 
     public static void main(String[] args) {
+
         UiHandler ui = new UiHandler();
 
         allKeys = new ArrayList<QuestionKey>();
@@ -27,10 +29,12 @@ public class core {
         for (String s : TextData) { // generating the different arraylist of keywords decomp and ans
             processScriptLine(s);
         }
+        userProfile=new Profile();
 
         for (QuestionKey key : allKeys) { // debugging
             System.out.println(key.toString());
         }
+
 
     }
 
@@ -58,6 +62,10 @@ public class core {
             } else {
                 System.out.println("Tried to add answer to a null last Decomp"); // debugging
             }
+        }else if(line.matches("(.*)profile:(.*)")){
+            line=line.replaceAll("(.*)profile: ","");
+            lastDecomp.setProfileQuestionType(line);
+            System.out.println("Set the decomps profilequestion to " + line + " for D: " + lastDecomp.DecompRegs.get(0));
         }
 
     }
@@ -72,8 +80,8 @@ public class core {
         String ans = "";
 
         for (QuestionKey k : allKeys) {
-            if (k.hasKeyWord(words)) {
-                ans = k.getAnswer(words);
+            if (k.hasKeyWord(line)) {
+                ans = k.getAnswer(line);
                 if (ans.length() > 1) { // to make sure we have an answer with something in it
                     return ans;
                 }

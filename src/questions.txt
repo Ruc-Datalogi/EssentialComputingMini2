@@ -70,6 +70,7 @@ key: name
         ans: My name is Eve.
     decomp: *my*
         ans: That's a lovely name, what's your occupation if i may ask?
+        profile: name
 key: favourite
     decomp: *show*
         ans: My favourite show is Black Mirror
