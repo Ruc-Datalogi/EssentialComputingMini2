@@ -33,6 +33,7 @@ public class UiHandler extends Frame implements KeyListener {
         setSize(500, 600);  // sets initial size
         setVisible(true);          //  Frame shows
         setResizable(false); // non resizeable
+        taDisplay.setEditable(false); // cannot edit the window
         taDisplay.append("Hello im Eve ! how are you ?" + "\n");
     }
 

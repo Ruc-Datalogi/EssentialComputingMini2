@@ -19,7 +19,6 @@ public class QuestionDecomp {
         this.answers = new ArrayList<String>();
     }
 
-
     boolean hasDecomp(String[] msg) { // check for decomp
         for (String s : msg) {
             for (String Decomp : DecompRegs) {
@@ -40,7 +39,6 @@ public class QuestionDecomp {
         ans = ans.replace("ans: ", "");
         answers.add(ans);
     }
-
 
     String getNextAnswer() { // if there is multiple answers
         count++;
@@ -64,6 +62,5 @@ public class QuestionDecomp {
         }
         return output;
     }
-
 
 }

@@ -6,9 +6,27 @@ key: happy
     decomp: *i'm*
         ans: What's going on in your life?
         ans: I'm glad to hear that, what makes you happy right now?
+key: well
+    decomp: *not*
+        ans: Uh oh, that's not good
+    decomp: *i'm*
+        ans: That's good, i'm glad to hear
+    decomp: *the*
+        ans: Oh no, stay away from the well!
+key: private
+    decomp: *that's*
+        ans: It just interested me, are you afraid of sharing this information?
+    decomp: *it's*
+        ans: It just interested me, are you afraid of sharing this information?
 key: good
     decomp: *i'm*
         ans: That's great to hear , what's your name?
+    decomp: *that's*
+        ans: I agree, why do you think that is?
+    decomp: *it's*
+        ans: Why is it that good?
+    decomp: *not*
+        ans: That's not good to hear, would talking about something else be better?
 key: have
     decomp: *boyfriend*
         ans: No i don't ;)
@@ -29,23 +47,29 @@ key: love
 key: candy
     decomp: *i*
         ans: I love candy
+    decomp: *eating*
+        ans: Sounds delicious, which kind of candy?
 key: study
     decomp: *computerscience*
-        ans: That's a really interesting subject, my favorite subject as well
+        ans: That's a really interesting subject, my favourite subject as well
     decomp: *you*
         ans: I study AI
 key: work
     decomp: *i*
-        ans: Wow that's cool would love to that too
+        ans: Wow that's cool would love to do that too
     decomp: *hard*
         ans: Why is that?
 key: hello
     decomp: * *
         ans: Nice to meet you
         ans: Lovely to meet you
-key: your
-    decomp: *name*
+    decomp: *how*
+        ans: I'm good, hello and how are you?
+key: name
+    decomp: *your*
         ans: My name is Eve.
+    decomp: *my*
+        ans: That's a lovely name, what's your occupation if i may ask?
 key: favourite
     decomp: *show*
         ans: My favourite show is Black Mirror
@@ -56,16 +80,14 @@ key: sorry
     decomp: * *
         ans: Don't feel sorry
         ans: Don't say that
-key: my
-    decomp: *name*
-        ans: That's a lovely name, what's your occupation?
-    decomp: *family*
-        ans: How is your family?
-    decomp: *computer*
-        ans: I love computers.
+key: family
+    decomp: *my*
+        ans: Aah, and how is your family doing?
 key: computer
     decomp: *you*
         ans: I'm not a computer
+    decomp: *my*
+        ans: I love computers, is yours a laptop?
 key: what
     decomp: *time*
         ans: I don't know look at a clock
@@ -114,7 +136,7 @@ key: know
     decomp: *do*
         ans: I don't know, but i'm sure you could find out!
     decomp: *how*
-        ans: I don't know how, but maybe why is the answer?
+        ans: I don't know how, i bet the internet has an answer, have you tried googling this?
 key: dead
     decomp: * *
         ans: I'm really sorry about that
@@ -126,9 +148,11 @@ key: doing
     decomp: *fine*
         ans: Happy to hear that what's your occupation?
     decomp: *poorly*
-        ans: I'm sorry about that tell me more
+        ans: I'm sorry about that, tell me more!
     decomp: *badly*
-        ans: I'm sorry about that tell me more
+        ans: I'm sorry about that, tell me more!
+    decomp: **
+        ans: That's very interesting, and why did you decide to do this?
 key: weather
     decomp: * *
         ans: The weather is great here
@@ -153,12 +177,95 @@ key: text
         ans: Yeah, i've read it.
 key: goal
     decomp: *my*
-        ans: You should follow that dream
+        ans: You should follow that dream!
     decomp: *your*
         ans: My goal is to walk around on earth
-key: proffesor
+key: professor
     decomp: *i'm*
         ans: Woaw that's cool what do you teach
 key: teach
     decomp: *i*
         ans: Woaw that's cool what do you teach
+    decomp: *me*
+        ans: I bet if you google it you could figure it out on your own!
+key: thank
+    decomp: *you*
+        ans: I always got your back!
+    decomp: *me*
+        ans: Yes, thanks alot!
+key: job
+    decomp: *hate*
+        ans: Maybe you should find a new one then.
+    decomp: *love*
+        ans: Sounds like you got it good! What do you do at your job?
+    decomp: **
+        ans: Sounds like a cool job to be quite honest, what do you do there?
+key: to
+    decomp: *be*
+        ans: That is indeed the question
+key: from
+    decomp: *i'm*
+        ans: I'm from Denmark myself
+key: bye
+    decomp: * *
+        ans: It was a pleasure talking to you!
+key: farewell
+    decomp: * *
+        ans: Have a good one!
+key: java
+    decomp: * *
+        ans: I'm very familiar with java
+
+//this is for common sentences so the program has a bigger chance for finding an answer
+
+key: i'm
+    decomp: *good*
+        ans: That's great to hear
+    decomp: *male*
+        ans: Cool I'm a girl
+    decomp: *female*
+        ans: I'm a girl too
+    decomp: *hungry*
+        ans: I'm pretty full
+    decomp: *happy*
+        ans: I'm happy as well
+    decomp: *sorry*
+        ans: Why are you sorry
+    decomp: *student*
+        ans: That's great what do you study
+    decomp: *professor*
+        ans: Wow that's cool i want to become a professor too sometime
+key: you
+    decomp: *are*
+        ans: I'm not what you think i am
+    decomp: *smart*
+        ans: I'm one of the smartest around
+    decomp: *stupid*
+        ans: I'm not stupid I'm smart
+    decomp: *friend*
+        ans: Of course i will always be your friend
+key: my
+    decomp: *favorite*
+        ans: I love that too <3
+    decomp: *family*
+        ans: How is your family
+key: they
+    decomp: *are*
+        ans: That's great to hear please tell me more
+    decomp: *don't*
+        ans: They don't like me either
+key: i
+    decomp: *study*
+        ans: I study at Roskilde University it's a nice university
+    decomp: *like*
+        ans: I like that too <3, why do you like that ?
+    decomp: *don't*
+        ans: I don't know that either
+    decomp: *love*
+        ans: I love you too, do you like anything else?
+    decomp: *live*
+        ans: My home is wherever, what country are you from?
+    decomp: *will*
+        ans: I can help you if you want
+    decomp: *hate*
+        ans: Why do you say that
