@@ -19,6 +19,18 @@ public class QuestionDecomp {
         this.answers = new ArrayList<String>();
     }
 
+    //Checking if any of our decomp filters can be found in the line.
+    boolean hasDecomp(String line){
+        //Iterating through each decomp and checking the against the line.
+        for(String D : DecompRegs){
+            if (line.matches("(.*)" + D+ "(.*)")){
+                //Once a match is found we return true
+                return true;
+            }
+        }
+        return false;
+    }
+
     boolean hasDecomp(String[] msg) { // check for decomp
         for (String s : msg) {
             for (String Decomp : DecompRegs) {
@@ -39,6 +51,7 @@ public class QuestionDecomp {
         ans = ans.replace("ans: ", "");
         answers.add(ans);
     }
+
 
     String getNextAnswer() { // if there is multiple answers
         count++;
@@ -62,5 +75,6 @@ public class QuestionDecomp {
         }
         return output;
     }
+
 
 }

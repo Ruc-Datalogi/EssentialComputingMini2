@@ -4,6 +4,7 @@
          */
 
 import java.util.ArrayList;
+
 public class core {
     /*
             The core shouldn't be doing much runtime work in itself, instead we use seperate classes and objects to deligate
@@ -37,16 +38,18 @@ public class core {
     static void processScriptLine(String line) {
         String words[] = line.split("\\s+");
         if (line.matches("(.*)key:(.*)")) { // check for if the line contains the word key and if so add to the keyList
-            QuestionKey tempKey = new QuestionKey(words[1]); // because words[0] is key:
+            QuestionKey tempKey = new QuestionKey(words[1]);
             lastKey = tempKey;
             allKeys.add(tempKey);
-
         } else if (line.matches("(.*)decomp:(.*)")) { // check for decomp and add to decompList
+            //TODO make it so we can add the whole regex string for decomp
             QuestionDecomp tempDecomp;
-
-            words[2] = words[2].replaceAll("\\*", ""); // remove * from the decomp word
-            tempDecomp = new QuestionDecomp(words[2]);
-
+            words[2] = words[2].replaceAll("\\*", ""); // remove * from the word
+            if (words.length < 3) {
+                tempDecomp = new QuestionDecomp("*");
+            } else {
+                tempDecomp = new QuestionDecomp(words[2]);
+            }
             lastDecomp = tempDecomp;
             lastKey.addDecomp(tempDecomp);
         } else if (line.matches("(.*)ans:(.*)")) { // lastly add the answers
@@ -56,6 +59,7 @@ public class core {
                 System.out.println("Tried to add answer to a null last Decomp"); // debugging
             }
         }
+
     }
 
     static String findAnswerToString(String line) {
@@ -64,6 +68,7 @@ public class core {
         line = sC.checkForSynonym(line);
         System.out.println("I insert " + line);
         String words[] = line.split(" "); // splitting the words by " "
+
         String ans = "";
 
         for (QuestionKey k : allKeys) {
