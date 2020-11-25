@@ -37,6 +37,7 @@ public class core {
         } else if (line.matches("(.*)decomp:(.*)")) { // check for decomp and add to decompList
             //TODO make it so we can add the whole regex string for decomp
             QuestionDecomp tempDecomp;
+
             words[2] = words[2].replaceAll("\\*",""); // remove * from the word
             if (words.length < 3) {
                 tempDecomp = new QuestionDecomp("*");
@@ -68,9 +69,11 @@ public class core {
         int count = 0;
 
         for (QuestionKey k : allKeys) {
-            if (k.hasKeyWord(words)) {
-                ans = k.getAnswer(words);
-                return ans;
+            if (k.hasKeyWord(line)) {
+                ans = k.getAnswer(line);
+                if (ans.length()>1) {
+                    return ans;
+                }
             }
         }
 
