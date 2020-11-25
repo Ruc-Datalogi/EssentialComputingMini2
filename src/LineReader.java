@@ -31,7 +31,7 @@ public class LineReader {
         }
 
 
-        System.out.println("Wrong path "); // wrong path
+        System.out.println("Wrong path"); // wrong path
         System.out.println(failedGet[0]);
         return failedGet;
     }

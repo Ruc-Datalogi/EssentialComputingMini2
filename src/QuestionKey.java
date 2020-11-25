@@ -5,16 +5,15 @@ public class QuestionKey {
     ArrayList<String> keyWords;
     ArrayList<QuestionDecomp> decompsForKey;
 
-    QuestionKey(String[] newKeywords) { //
+    QuestionKey(String[] newKeywords) { // unused constructer
         this.decompsForKey = new ArrayList<QuestionDecomp>();
         this.keyWords = new ArrayList<String>();
         for (String s : newKeywords) {
             this.keyWords.add(s);
         }
-
     }
 
-    QuestionKey(String keyWord) {
+    QuestionKey(String keyWord) { // constructor for QuestionKey
         this.keyWords = new ArrayList<String>();
         this.keyWords.add(keyWord);
         this.decompsForKey = new ArrayList<QuestionDecomp>();
@@ -56,12 +55,11 @@ public class QuestionKey {
 
     String getAnswer(String[] msg) { // get the next answer for the input
         for (QuestionDecomp D : decompsForKey) {
-            //System.out.println("For");
             if (D.hasDecomp(msg)) {
                return D.getNextAnswer();
             }
         }
-        return "Sorry I don't understand";
+        return ""; // return empty if no decomp word is found
     }
 
 

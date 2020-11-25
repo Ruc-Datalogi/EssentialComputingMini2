@@ -9,6 +9,7 @@ public class core {
     static QuestionKey lastKey; //
     static QuestionDecomp lastDecomp;
     static int countForQuestions = -1; // if EVE doesnt understand she outputs question
+    static String[] questionStartes = {"What's Your name again", "What is your occupation", "Dogs or cats?"};
 
     public static void main(String[] args) {
         UiHandler ui = new UiHandler();
@@ -17,10 +18,11 @@ public class core {
         LineReader ourLineReader = new LineReader("./src/questions.txt");
         String[] TextData = ourLineReader.openFile();
 
-        for (String s : TextData) {
+        for (String s : TextData) { // generating the different arraylist of keywords decomp and ans
             processScriptLine(s);
         }
-        for (QuestionKey key : allKeys) {
+
+        for (QuestionKey key : allKeys) { // debugging
             System.out.println(key.toString());
         }
 
@@ -37,8 +39,7 @@ public class core {
         } else if (line.matches("(.*)decomp:(.*)")) { // check for decomp and add to decompList
             //TODO make it so we can add the whole regex string for decomp
             QuestionDecomp tempDecomp;
-
-            words[2] = words[2].replaceAll("\\*",""); // remove * from the word
+            words[2] = words[2].replaceAll("\\*", ""); // remove * from the word
             if (words.length < 3) {
                 tempDecomp = new QuestionDecomp("*");
             } else {
@@ -53,7 +54,7 @@ public class core {
             if (lastDecomp != null) {
                 lastDecomp.addAnswer(line);
             } else {
-                System.out.println("Tried to add answer to a null last Decomp");
+                System.out.println("Tried to add answer to a null last Decomp"); // debugging
             }
         }
 
@@ -64,26 +65,23 @@ public class core {
         SynonymCheck sC = new SynonymCheck(); // checking for synonyms and replacing
         line = sC.checkForSynonym(line);
         String words[] = line.split(" "); // splitting the words by " "
-        String questionStarters[] = {"What's your name again ?", "How's your family doing ?", "How's school ?"};
+
         String ans = "";
         int count = 0;
 
         for (QuestionKey k : allKeys) {
-            if (k.hasKeyWord(line)) {
-                ans = k.getAnswer(line);
-                if (ans.length()>1) {
-                    return ans;
-                }
+            if (k.hasKeyWord(words)) {
+                ans = k.getAnswer(words);
+                return ans;
             }
         }
 
-
-        countForQuestions++;
-        if (countForQuestions == questionStarters.length) {
+        if (countForQuestions == questionStartes.length - 1) { // to avoid out of bounds
             countForQuestions = 0;
         }
+        countForQuestions++;
 
-        return questionStarters[countForQuestions];
+        return questionStartes[countForQuestions];
     }
 
 
