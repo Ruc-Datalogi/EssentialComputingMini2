@@ -162,6 +162,10 @@ key: acknowledge
         ans: Read a book! Those are great for knowledge
     decomp: *you*
         ans: Yeah, i guess i agree.
+key: years
+    decomp: i'm
+        ans: Ohh you count your age in years? I usually count time in nanoseconds.
+        profile: age
 key: message
     decomp: *me*
         ans: I'll message you

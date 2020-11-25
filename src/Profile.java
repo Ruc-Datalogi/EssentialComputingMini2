@@ -47,7 +47,7 @@ public class Profile {
         if(questionType.equalsIgnoreCase("name")){
             //setting the users name as the last word of the input line
             this.setName(line.replaceAll("^.*?(\\w+)\\W*$", "$1"));
-        }else if(questionType=="age"){
+        }else if(questionType.equalsIgnoreCase("age")){
             this.setAge(Integer.parseInt(line.replaceAll("\\D+","")));
         }else if(questionType=="sex"){
 
