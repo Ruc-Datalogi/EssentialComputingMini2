@@ -9,7 +9,7 @@ public class core {
     static QuestionKey lastKey; //
     static QuestionDecomp lastDecomp;
     static int countForQuestions = -1; // if EVE doesnt understand she outputs question
-    static String[] questionStartes = {"What's Your name again?", "What is your occupation?", "I'm confused, Dogs or cats? Which one do you prefer?", "Are you okay?", "Hmm, mind if i change the subject?", "...", "Okay, so i got to know, "};
+    static String[] questionStartes = {"What's Your name again?", "What is your occupation?", "I'm confused, Dogs or cats? Which one do you prefer?", "Are you okay?", "Hmm, mind if i change the subject?", "Okay, so i got to know,"};
 
     public static void main(String[] args) {
         UiHandler ui = new UiHandler();
