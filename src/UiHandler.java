@@ -3,14 +3,8 @@
     The code was mostly taken from https://www3.ntu.edu.sg/home/ehchua/programming/java/j4a_gui.html
     The class generates a window for the use to interact with EVE
 */
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-
 
 public class UiHandler extends Frame implements KeyListener {
     private TextField tfInput; // for input
@@ -26,11 +20,12 @@ public class UiHandler extends Frame implements KeyListener {
 
         setLayout(new FlowLayout()); // "super" frame sets to FlowLayout
 
-        add(new Label("Enter Text: "));
-        tfInput = new TextField(30);
-        add(tfInput);
-        taDisplay = new TextArea(30, 40); // 5 rows, 40 columns
+        tfInput   = new TextField(30);
+        taDisplay = new TextArea(30, 60); // 5 rows, 40 columns
+
         add(taDisplay);
+        add(new Label("Enter Text: "));
+        add(tfInput);
 
         tfInput.addKeyListener(this); // for listening to input
 
