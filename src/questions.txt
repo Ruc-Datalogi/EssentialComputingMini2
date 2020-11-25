@@ -73,6 +73,7 @@ key: name
         ans: My name is Eve.
     decomp: *my*
         ans: That's a lovely name, what's your occupation if i may ask?
+        profile: name
 key: favourite
     decomp: *show*
         ans: My favourite show is Black Mirror
@@ -164,6 +165,10 @@ key: acknowledge
         ans: Read a book! Those are great for knowledge
     decomp: *you*
         ans: Yeah, i guess i agree.
+key: years
+    decomp: i'm
+        ans: Ohh you count your age in years? I usually count time in nanoseconds.
+        profile: age
 key: message
     decomp: *me*
         ans: I'll message you
@@ -203,3 +208,72 @@ key: job
         ans: Sounds like you got it good! What do you do at your job?
     decomp: **
         ans: Sounds like a cool job to be quite honest, what do you do there?
+key: to
+    decomp: *be*
+        ans: That is indeed the question
+key: from
+    decomp: *i'm*
+        ans: I'm from Denmark myself
+key: bye
+    decomp: * *
+        ans: It was a pleasure talking to you!
+key: farewell
+    decomp: * *
+        ans: Have a good one!
+key: java
+    decomp: * *
+        ans: I'm very familiar with java
+
+//this is for common sentences so the program has a bigger chance for finding an answer
+
+key: i'm
+    decomp: *good*
+        ans: That's great to hear
+    decomp: *male*
+        ans: Cool I'm a girl
+    decomp: *female*
+        ans: I'm a girl too
+    decomp: *hungry*
+        ans: I'm pretty full
+    decomp: *happy*
+        ans: I'm happy as well
+    decomp: *sorry*
+        ans: Why are you sorry
+    decomp: *student*
+        ans: That's great what do you study
+    decomp: *professor*
+        ans: Wow that's cool i want to become a professor too sometime
+key: you
+    decomp: *are*
+        ans: I'm not what you think i am
+    decomp: *smart*
+        ans: I'm one of the smartest around
+    decomp: *stupid*
+        ans: I'm not stupid I'm smart
+    decomp: *friend*
+        ans: Of course i will always be your friend
+key: my
+    decomp: *favorite*
+        ans: I love that too <3
+    decomp: *family*
+        ans: How is your family
+key: they
+    decomp: *are*
+        ans: That's great to hear please tell me more
+    decomp: *don't*
+        ans: They don't like me either
+key: i
+    decomp: *study*
+        ans: I study at Roskilde University it's a nice university
+    decomp: *like*
+        ans: I like that too <3, why do you like that ?
+    decomp: *don't*
+        ans: I don't know that either
+    decomp: *love*
+        ans: I love you too, do you like anything else?
+    decomp: *live*
+        ans: My home is wherever, what country are you from?
+    decomp: *will*
+        ans: I can help you if you want
+    decomp: *hate*
+        ans: Why do you say that

@@ -3,6 +3,8 @@ import java.util.ArrayList;
 public class QuestionDecomp {
     ArrayList<String> DecompRegs;
     ArrayList<String> answers;
+    boolean hasProfileQuestionType=false; //By default we don't have a question. We use this value as it's more efficient to check a boolean than compare a string length
+    String profileQuestionType;
     int count = -1; // the function increments at the start
 
     QuestionDecomp(String[] newKeywords) { // unused constructor for handling arrays
@@ -18,7 +20,26 @@ public class QuestionDecomp {
         this.DecompRegs.add(Decomp);
         this.answers = new ArrayList<String>();
     }
+    void setProfileQuestionType(String questionType){
+        profileQuestionType=questionType;
+        hasProfileQuestionType=true;
+    }
 
+    //Checking if any of our decomp filters can be found in the line.
+    boolean hasDecomp(String line){
+        if(hasProfileQuestionType){
+            System.out.println("Processing input for questionType" + profileQuestionType);
+            core.userProfile.processInput(line,profileQuestionType);
+        }
+        //Iterating through each decomp and checking the against the line.
+        for(String D : DecompRegs){
+            if (line.matches("(.*)" + D+ "(.*)")){
+                //Once a match is found we return true
+                return true;
+            }
+        }
+        return false;
+    }
 
     boolean hasDecomp(String[] msg) { // check for decomp
         for (String s : msg) {
