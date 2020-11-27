@@ -60,6 +60,7 @@ key: study
 key: work
     decomp: *i*
         ans: Wow that's cool would love to do that too
+        profile: occupation=work
     decomp: *hard*
         ans: Why is that?
 key: hello
@@ -135,12 +136,16 @@ key: cat
     decomp: * *
         ans: I like dogs better?
 key: know
+    decomp: *about me*
+        profile: reply
+        ans: I think I know a bit about you.
     decomp: *what*
         ans: Yes?
     decomp: *do*
         ans: I don't know, but i'm sure you could find out!
     decomp: *how*
         ans: I don't know how, i bet the internet has an answer, have you tried googling this?
+
 key: dead
     decomp: * *
         ans: I'm really sorry about that
@@ -167,7 +172,7 @@ key: acknowledge
         ans: Yeah, i guess i agree.
 key: years
     decomp: i'm
-        ans: Ohh you count your age in years? I usually count time in nanoseconds.
+        ans: Ohh you count your age in years? I usually count time in seconds.
         profile: age
 key: message
     decomp: *me*
@@ -204,10 +209,13 @@ key: thank
 key: job
     decomp: *hate*
         ans: Maybe you should find a new one then.
+        profile: occupation=work
     decomp: *love*
         ans: Sounds like you got it good! What do you do at your job?
+        profile: occupation=work
     decomp: **
         ans: Sounds like a cool job to be quite honest, what do you do there?
+        profile: occupation=work
 key: to
     decomp: *be*
         ans: That is indeed the question
@@ -240,6 +248,7 @@ key: i'm
     decomp: *sorry*
         ans: Why are you sorry
     decomp: *student*
+        profile: occupation=student
         ans: That's great what do you study
     decomp: *professor*
         ans: Wow that's cool i want to become a professor too sometime
@@ -265,6 +274,7 @@ key: they
 key: i
     decomp: *study*
         ans: I study at Roskilde University it's a nice university
+        profile: occupation=student
     decomp: *like*
         ans: I like that too <3, why do you like that ?
     decomp: *don't*
