@@ -1,3 +1,8 @@
+/*
+Class for the profile which stores the name, age, occupation
+
+ */
+
 public class Profile {
     String name;
     int age;
@@ -10,6 +15,7 @@ public class Profile {
     Profile(){
     }
 
+    // setters and getters
     public void setName(String Name){
         this.name=Name;
         System.out.println("Set name to: " +Name);
@@ -55,19 +61,22 @@ public class Profile {
     public void setMale(boolean male) {
         this.male = male;
     }
-    void processInput(String line){
-        if(hasQueuedQuestion){
+
+    void processInput(String line){ // for processing the input
+        if(hasQueuedQuestion){ // if theres a question in the queue
             processInput(line,queuedQuestion);
             hasQueuedQuestion=false;
         }
     }
+
     String getReply(){
         if(hasQueuedReply){
             return getProfileSummary();
         }
         return "";
     }
-    String getProfileSummary(){
+
+    String getProfileSummary(){ // get the profile of the user
         String reply="I seem to think that I know the following:";
         if(hasName()){
             reply+=" your name is " + name + ",";
@@ -80,7 +89,7 @@ public class Profile {
         }
         return reply;
     }
-    void processInput(String line,String questionType){
+    void processInput(String line,String questionType){ // proccess in the input
         if(questionType.equalsIgnoreCase("name")){
             //setting the users name as the last word of the input line
             this.setName(line.replaceAll("^.*?(\\w+)\\W*$", "$1"));
