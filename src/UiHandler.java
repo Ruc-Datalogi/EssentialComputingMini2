@@ -55,7 +55,7 @@ public class UiHandler extends Frame implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) { // get input from user and the display answer
         if (e.getKeyCode() == KeyEvent.VK_ENTER & (tfInput.getText().length() > 0)) {
-            tfInput.setEditable(false);
+            tfInput.setEditable(false); // while Eve is getting the answer the user cannot write anything
             boolean oneshot = true;
             Timer timer = new Timer();
             TimerTask task = new Helper();
@@ -78,31 +78,30 @@ public class UiHandler extends Frame implements KeyListener {
     }
 
     class Helper extends TimerTask {
-        boolean oneshot = true;
-        boolean decider = random.nextBoolean();
-        int stopdots;
+        boolean oneshot = true; // to make sure the code only runs once
+        boolean decider = random.nextBoolean(); // to switch between making 2 dots or 5 dots
+        int stopdots; // amount of dots to be made
 
         int i = 0;
 
-        public void run() {
-            if (decider) {
+        public void run() { // for making the dots in the ui
+            if (decider) { // make 5 or 2 dots
                 stopdots = 5;
             } else {
                 stopdots = 2;
             }
-            if (i == stopdots) {
+            if (i == stopdots) { // if it has made the right amount of dots
                 System.out.println(inputSave);
                 taDisplay.replaceRange("Eve: " + core.findAnswerToString(inputSave), taDisplay.getText().length() - 7, taDisplay.getText().length());
                 System.out.println(core.findAnswerToString(inputSave));
                 cancel();
                 tfInput.setEditable(true);
-            } else if (oneshot) {
+            } else if (oneshot) { // to make sure it is at the first dot
                 taDisplay.append("Eve: .");
                 oneshot = false;
                 i++;
-            } else if (taDisplay.getText().contains("Eve: ...")) {
+            } else if (taDisplay.getText().contains("Eve: ...")) { // if it has made 3 dots make 1
                 taDisplay.replaceRange("Eve: .", taDisplay.getText().length() - 8, taDisplay.getText().length());
-                //taDisplay.setText("Eve: .");
                 i++;
             } else {
                 taDisplay.append(".");
