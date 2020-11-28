@@ -1,6 +1,6 @@
         /*
         This program is by Mikkel Elmelund Esbersen, Sebastian Nørager, and Martin List Syberg
-        and it is examination mini-project for the Essential Computing course at Roskilde University
+        and it is the examination mini-project for the Essential Computing course at Roskilde University
          */
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class core {
     static QuestionKey lastKey; //
     static QuestionDecomp lastDecomp;
     static int countForQuestions = -1; // if EVE doesnt understand she outputs question
-    static String[] questionStartes = {"What's Your name again?", "What is your occupation?", "I'm confused, Dogs or cats? Which one do you prefer?", "Are you okay?", "Hmm, mind if i change the subject?", "...", "Okay, so i got to know, "};
+    static String[] questionStartes = {"What's Your name again?", "What is your occupation?", "I'm confused, Dogs or cats? Which one do you prefer?", "Are you okay?", "Hmm, mind if i change the subject?", "Okay, so i got to know, "};
     static Profile userProfile;
 
     public static void main(String[] args) {
@@ -92,10 +92,23 @@ public class core {
             }
         }
 
+
+
+
+
+
         if (countForQuestions == questionStartes.length - 1) { // to avoid out of bounds
             countForQuestions = 0;
         }
         countForQuestions++;
+
+        if(userProfile.hasName() == true && questionStartes[countForQuestions] == "What's Your name again?"){ // check if the it already has stored a name
+            countForQuestions++;
+        }
+
+        if(userProfile.hasOccupation() == true && questionStartes[countForQuestions] == "What is your occupation?"){ // check if it already knows the occupation
+            countForQuestions++;
+        }
 
         return questionStartes[countForQuestions];
     }
