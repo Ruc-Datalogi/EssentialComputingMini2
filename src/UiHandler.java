@@ -91,7 +91,6 @@ public class UiHandler extends Frame implements KeyListener {
                 stopdots = 2;
             }
             if (i == stopdots) {
-                System.out.println("fuck");
                 System.out.println(inputSave);
                 taDisplay.replaceRange("Eve: " + core.findAnswerToString(inputSave), taDisplay.getText().length() - 7, taDisplay.getText().length());
                 System.out.println(core.findAnswerToString(inputSave));
