@@ -14,7 +14,7 @@ import java.util.Random;
 public class UiHandler extends Frame implements KeyListener {
     private TextField tfInput; // for input
     public JTextArea taDisplay; // for displaying in the window
-    public String inputSave;
+    public String outputSave;
     Random random = new Random();
 
     public UiHandler() {
@@ -56,13 +56,12 @@ public class UiHandler extends Frame implements KeyListener {
     public void keyPressed(KeyEvent e) { // get input from user and the display answer
         if (e.getKeyCode() == KeyEvent.VK_ENTER & (tfInput.getText().length() > 0)) {
             tfInput.setEditable(false); // while Eve is getting the answer the user cannot write anything
-            boolean oneshot = true; // to make sure the code only runs once
-            Timer timer = new Timer(); // for making a delay
-            TimerTask task = new Helper(); // for
-            taDisplay.append("\n" + "User: " + tfInput.getText() + "\n"); // the user input
-            timer.schedule(task, 100, 500); // set the task
-            inputSave = tfInput.getText();
-
+            boolean oneshot = true;
+            Timer timer = new Timer();
+            TimerTask task = new Helper();
+            taDisplay.append("\n" + "User: " + tfInput.getText() + "\n");
+            timer.schedule(task, 100, 500);
+            outputSave = core.findAnswerToString(tfInput.getText());
             tfInput.setText("");
         }
     }
@@ -90,10 +89,10 @@ public class UiHandler extends Frame implements KeyListener {
             } else {
                 stopdots = 2;
             }
-            if (i == stopdots) { // if it has made the right amount of dots
-                System.out.println(inputSave);
-                taDisplay.replaceRange("Eve: " + core.findAnswerToString(inputSave), taDisplay.getText().length() - 7, taDisplay.getText().length());
-                System.out.println(core.findAnswerToString(inputSave));
+            if (i == stopdots) {
+                System.out.println("fuck");
+                System.out.println(outputSave);
+                taDisplay.replaceRange("Eve: " + outputSave, taDisplay.getText().length() - 7, taDisplay.getText().length());
                 cancel();
                 tfInput.setEditable(true);
             } else if (oneshot) { // to make sure it is at the first dot
