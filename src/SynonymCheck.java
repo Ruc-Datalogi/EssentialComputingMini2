@@ -16,6 +16,7 @@ public class SynonymCheck {
         line = line.replaceAll(" that is ", "that's");
         line = line.replaceAll(" youre ", "you're");
         line = line.replaceAll(" you are ", "you're");
+        line = line.replaceAll("dont", "don't");
 
         return line;
     }

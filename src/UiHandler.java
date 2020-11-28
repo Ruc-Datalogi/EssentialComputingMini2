@@ -14,7 +14,7 @@ import java.util.Random;
 public class UiHandler extends Frame implements KeyListener {
     private TextField tfInput; // for input
     public JTextArea taDisplay; // for displaying in the window
-    public String outputSave;
+    public String inputSave;
     Random random = new Random();
 
     public UiHandler() {
@@ -61,7 +61,8 @@ public class UiHandler extends Frame implements KeyListener {
             TimerTask task = new Helper();
             taDisplay.append("\n" + "User: " + tfInput.getText() + "\n");
             timer.schedule(task, 100, 500);
-            outputSave = core.findAnswerToString(tfInput.getText());
+            inputSave = tfInput.getText();
+
             tfInput.setText("");
         }
     }
@@ -90,9 +91,9 @@ public class UiHandler extends Frame implements KeyListener {
                 stopdots = 2;
             }
             if (i == stopdots) {
-                System.out.println("fuck");
-                System.out.println(outputSave);
-                taDisplay.replaceRange("Eve: " + outputSave, taDisplay.getText().length() - 7, taDisplay.getText().length());
+                System.out.println(inputSave);
+                taDisplay.replaceRange("Eve: " + core.findAnswerToString(inputSave), taDisplay.getText().length() - 7, taDisplay.getText().length());
+                System.out.println(core.findAnswerToString(inputSave));
                 cancel();
                 tfInput.setEditable(true);
             } else if (oneshot) {

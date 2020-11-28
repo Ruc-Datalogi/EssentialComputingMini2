@@ -5,7 +5,7 @@ public class QuestionDecomp {
     ArrayList<String> answers;
     boolean hasProfileQuestionType=false; //By default we don't have a question. We use this value as it's more efficient to check a boolean than compare a string length
     String profileQuestionType;
-    int count = -1; // the function increments at the start
+    int count = -1; // the function increments at the start so we start at -1
 
     QuestionDecomp(String[] newKeywords) { // unused constructor for handling arrays
         this.DecompRegs = new ArrayList<String>();
@@ -20,7 +20,8 @@ public class QuestionDecomp {
         this.DecompRegs.add(Decomp);
         this.answers = new ArrayList<String>();
     }
-    void setProfileQuestionType(String questionType){
+
+    void setProfileQuestionType(String questionType){ // for checking if it is profile question
         profileQuestionType=questionType;
         hasProfileQuestionType=true;
     }

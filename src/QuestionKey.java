@@ -19,8 +19,8 @@ public class QuestionKey {
         this.decompsForKey = new ArrayList<QuestionDecomp>();
     }
 
-    boolean hasKeyWord(String line){
-        for(String K : keyWords){
+    boolean hasKeyWord(String line){ // check for keyword
+        for(String K : keyWords){ // check all keywords
             if(line.matches("(.*)" + K + "(.*)")){
                 return true;
             }
@@ -44,7 +44,7 @@ public class QuestionKey {
         decompsForKey.add(newDecomp);
     }
 
-    String getAnswer(String line){
+    String getAnswer(String line){ // get answer for key
         for(QuestionDecomp D : decompsForKey){
             if(D.hasDecomp(line)){
                 return D.getNextAnswer();

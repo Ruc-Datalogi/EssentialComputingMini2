@@ -77,17 +77,12 @@ public class Profile {
             //setting the users name as the last word of the input line
             this.setName(line.replaceAll("^.*?(\\w+)\\W*$", "$1"));
         }else if(questionType.equalsIgnoreCase("age")){
-            String newLine= line.replaceAll("\\D+","");
-            if(newLine.length()>0) { //Let's not try and parse an int from an empty string
-                int parsedAge = Integer.parseInt(newLine);
-                this.setAge(parsedAge);
-            }
+            this.setAge(Integer.parseInt(line.replaceAll("\\D+","")));
         }else if(questionType.equalsIgnoreCase("occupation=work")){
             setOccupation("working");
         }else if(questionType.equalsIgnoreCase("occupation=student")){
             setOccupation("studying");
         }else if(questionType.equalsIgnoreCase("reply")){
-            System.out.println("Setting reply to true");
             hasQueuedReply=true;
         }
     }

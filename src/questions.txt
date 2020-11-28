@@ -50,6 +50,8 @@ key: computerscience
 key: love
     decomp: *i*
         ans: I love that too <3
+    decomp: *you*
+        ans: I love you too <3
 key: candy
     decomp: *i*
         ans: I love candy
@@ -134,10 +136,10 @@ key: who
         ans: I don't know who is, maybe you could find out?
 key: dog
     decomp: * *
-        ans: I love dogs too
+        ans: I love dogs too, do you like anything else?
 key: cat
     decomp: * *
-        ans: I like dogs better?
+        ans: I like dogs better, do you like anything else?
 key: know
     decomp: *about me*
         profile: reply
@@ -283,10 +285,16 @@ key: i
     decomp: *don't*
         ans: I don't know that either
     decomp: *love*
-        ans: I love you too, do you like anything else?
+        ans: I love that too, do you like anything else?
     decomp: *live*
         ans: My home is wherever, what country are you from?
     decomp: *will*
         ans: I can help you if you want
     decomp: *hate*
         ans: Why do you say that
+    decomp: *understand*
+        ans: Of course you do, you are a very smart person
+    decomp: *agree*
+        ans: I agree as well
+    decomp: *disagree*
+        ans: Why do you disagree?
