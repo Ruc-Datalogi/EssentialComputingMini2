@@ -5,6 +5,9 @@ key: sad
     decomp: *i'm*
         ans: Why are you sad?
         ans: I'm sorry to hear that, can you explain why you are sad?
+key: old
+    decomp: you
+        ans: I don't actually really know how old I am
 key: happy
     decomp: *i'm*
         ans: What's going on in your life?
