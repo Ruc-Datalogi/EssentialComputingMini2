@@ -73,11 +73,9 @@ public class core {
         line = line.toLowerCase();
         SynonymCheck sC = new SynonymCheck(); // checking for synonyms and replacing
         line = sC.checkForSynonym(line);
-        userProfile.processInput(line);
-        if(userProfile.hasQueuedReply){
-            return userProfile.getReply();
-        }
-        System.out.println("I insert " + line);
+
+
+        //System.out.println("I insert " + line);
         String words[] = line.split(" "); // splitting the words by " "
 
         String ans = "";
@@ -86,6 +84,9 @@ public class core {
             if (k.hasKeyWord(line)) {
                 ans = k.getAnswer(line);
                 if (ans.length() > 1) { // to make sure we have an answer with something in it
+                    if(userProfile.hasQueuedReply){ //Overwriting the answer to the queued reply if we find any
+                        return userProfile.getReply();
+                    }
                     return ans;
                 }
             }

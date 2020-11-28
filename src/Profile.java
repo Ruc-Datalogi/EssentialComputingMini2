@@ -8,7 +8,6 @@ public class Profile {
     String queuedQuestion;
     boolean hasQueuedReply=false;
     Profile(){
-
     }
 
     public void setName(String Name){
@@ -19,6 +18,9 @@ public class Profile {
     public String getName() {
         return name;
     }
+    boolean hasName(){
+        return getName()!=null;
+    }
 
     public int getAge() {
         return age;
@@ -28,6 +30,9 @@ public class Profile {
         this.age = age;
         System.out.println("Set age to: " + age);
     }
+    boolean hasAge(){
+        return getAge()!=0;
+    }
 
     public String getOccupation() {
         return occupation;
@@ -35,6 +40,9 @@ public class Profile {
 
     public void setOccupation(String occupation) {
         this.occupation = occupation;
+    }
+    boolean hasOccupation(){
+        return getOccupation()!=null;
     }
 
     public boolean isMale() {
@@ -61,13 +69,13 @@ public class Profile {
     }
     String getProfileSummary(){
         String reply="I seem to think that I know the following:";
-        if(getName()!=null){
+        if(hasName()){
             reply+=" your name is " + name + ",";
         }
-        if(getAge()!=0){
+        if(hasAge()){
             reply+=" you're " + getAge() + " years old,";
         }
-        if(getOccupation()!=null){
+        if(hasOccupation()){
             reply+=" you're currently " + getOccupation();
         }
         return reply;
@@ -77,7 +85,11 @@ public class Profile {
             //setting the users name as the last word of the input line
             this.setName(line.replaceAll("^.*?(\\w+)\\W*$", "$1"));
         }else if(questionType.equalsIgnoreCase("age")){
-            this.setAge(Integer.parseInt(line.replaceAll("\\D+","")));
+            String newLine= line.replaceAll("\\D+","");
+            if(newLine.length()>0) { //Let's not try and parse an int from an empty string
+                int parsedAge = Integer.parseInt(newLine);
+                this.setAge(parsedAge);
+            }
         }else if(questionType.equalsIgnoreCase("occupation=work")){
             setOccupation("working");
         }else if(questionType.equalsIgnoreCase("occupation=student")){
