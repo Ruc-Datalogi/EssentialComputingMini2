@@ -56,11 +56,11 @@ public class UiHandler extends Frame implements KeyListener {
     public void keyPressed(KeyEvent e) { // get input from user and the display answer
         if (e.getKeyCode() == KeyEvent.VK_ENTER & (tfInput.getText().length() > 0)) {
             tfInput.setEditable(false); // while Eve is getting the answer the user cannot write anything
-            boolean oneshot = true;
-            Timer timer = new Timer();
-            TimerTask task = new Helper();
-            taDisplay.append("\n" + "User: " + tfInput.getText() + "\n");
-            timer.schedule(task, 100, 500);
+            boolean oneshot = true; // to make sure the code only runs once
+            Timer timer = new Timer(); // for making a delay
+            TimerTask task = new Helper(); // for
+            taDisplay.append("\n" + "User: " + tfInput.getText() + "\n"); // the user input
+            timer.schedule(task, 100, 500); // set the task
             inputSave = tfInput.getText();
 
             tfInput.setText("");

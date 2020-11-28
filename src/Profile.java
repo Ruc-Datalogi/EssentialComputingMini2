@@ -47,27 +47,27 @@ public class Profile {
     public void setMale(boolean male) {
         this.male = male;
     }
-    void processInput(String line){
-        if(hasQueuedQuestion){
+    void processInput(String line){ // process the input
+        if(hasQueuedQuestion){ // if theres a question in the queue
             processInput(line,queuedQuestion);
             hasQueuedQuestion=false;
         }
     }
     String getReply(){
-        if(hasQueuedReply){
+        if(hasQueuedReply){ // only if there's a reply in the queue
             return getProfileSummary();
         }
         return "";
     }
     String getProfileSummary(){
         String reply="I seem to think that I know the following:";
-        if(getName()!=null){
+        if(getName()!=null){ // only if the program has stored a name
             reply+=" your name is " + name + ",";
         }
-        if(getAge()!=0){
+        if(getAge()!=0){ // only if the program has stored an age
             reply+=" you're " + getAge() + " years old,";
         }
-        if(getOccupation()!=null){
+        if(getOccupation()!=null){ // only if it has stored an occupation
             reply+=" you're currently " + getOccupation();
         }
         return reply;
@@ -75,15 +75,15 @@ public class Profile {
     void processInput(String line,String questionType){
         if(questionType.equalsIgnoreCase("name")){
             //setting the users name as the last word of the input line
-            this.setName(line.replaceAll("^.*?(\\w+)\\W*$", "$1"));
+            this.setName(line.replaceAll("^.*?(\\w+)\\W*$", "$1")); // take the last word of the sentence
         }else if(questionType.equalsIgnoreCase("age")){
-            this.setAge(Integer.parseInt(line.replaceAll("\\D+","")));
-        }else if(questionType.equalsIgnoreCase("occupation=work")){
+            this.setAge(Integer.parseInt(line.replaceAll("\\D+",""))); // remove everything that's not a digit
+        }else if(questionType.equalsIgnoreCase("occupation=work")){ // if the user is working
             setOccupation("working");
-        }else if(questionType.equalsIgnoreCase("occupation=student")){
+        }else if(questionType.equalsIgnoreCase("occupation=student")){ // if the user is studying
             setOccupation("studying");
         }else if(questionType.equalsIgnoreCase("reply")){
-            hasQueuedReply=true;
+            hasQueuedReply=true; // start the queue
         }
     }
 
