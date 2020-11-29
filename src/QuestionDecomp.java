@@ -1,3 +1,7 @@
+/*
+A class for the decomposition words.
+ */
+
 import java.util.ArrayList;
 
 public class QuestionDecomp {
@@ -72,9 +76,7 @@ public class QuestionDecomp {
         return answers.get(count);
     }
 
-    String getFirstAnswer(){
-        return answers.get(0);
-    }
+
 
     public String toString() { // to string method for debugging
         String output = "";

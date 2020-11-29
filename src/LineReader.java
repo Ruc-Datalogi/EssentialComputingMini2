@@ -1,6 +1,6 @@
 /*
     This class is for reading our script file
-    we took a lot of inspiration from https://www.homeandlearn.co.uk/java/read_a_textfile_in_java.html
+    we took a lot of code from https://www.homeandlearn.co.uk/java/read_a_textfile_in_java.html
     It takes an input string for the path and outputs the different lines in a string array
 */
 

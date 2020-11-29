@@ -7,20 +7,15 @@ public class Profile {
     String name;
     int age;
     String occupation;
-    boolean male;
-
-    boolean hasQueuedQuestion=false;
-    String queuedQuestion;
     boolean hasQueuedReply=false;
+
     Profile(){
     }
 
     // setters and getters
     public void setName(String Name){
         this.name=Name;
-        System.out.println("Set name to: " +Name);
     }
-
     public String getName() {
         return name;
     }
@@ -28,22 +23,21 @@ public class Profile {
         return getName()!=null;
     }
 
+
     public int getAge() {
         return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-        System.out.println("Set age to: " + age);
     }
     boolean hasAge(){
         return getAge()!=0;
     }
-
-    public String getOccupation() {
-        return occupation;
+    public void setAge(int age) {
+        this.age = age;
     }
 
+
+    public String getOccupation() {
+        return this.occupation;
+    }
     public void setOccupation(String occupation) {
         this.occupation = occupation;
     }
@@ -51,23 +45,6 @@ public class Profile {
         return getOccupation()!=null;
     }
 
-    public boolean isMale() {
-        return male;
-    }
-    public boolean isFemale(){
-        return !male;
-    }
-
-    public void setMale(boolean male) {
-        this.male = male;
-    }
-
-    void processInput(String line){ // for processing the input
-        if(hasQueuedQuestion){ // if theres a question in the queue
-            processInput(line,queuedQuestion);
-            hasQueuedQuestion=false;
-        }
-    }
 
     String getReply(){
         if(hasQueuedReply){
@@ -78,13 +55,13 @@ public class Profile {
 
     String getProfileSummary(){ // get the profile of the user
         String reply="I seem to think that I know the following:";
-        if(hasName()){
+        if(hasName()){ // if the program has stored a name
             reply+=" your name is " + name + ",";
         }
-        if(hasAge()){
+        if(hasAge()){ // if the program has stored an age of the user
             reply+=" you're " + getAge() + " years old,";
         }
-        if(hasOccupation()){
+        if(hasOccupation()){ // if the program has stored an occupation
             reply+=" you're currently " + getOccupation();
         }
         return reply;
@@ -92,14 +69,14 @@ public class Profile {
     void processInput(String line,String questionType){ // proccess in the input
         if(questionType.equalsIgnoreCase("name")){
             //setting the users name as the last word of the input line
-            this.setName(line.replaceAll("^.*?(\\w+)\\W*$", "$1"));
+            this.setName(line.replaceAll("^.*?(\\w+)\\W*$", "$1")); // regex and replace from stackoverflow
         }else if(questionType.equalsIgnoreCase("age")){
-            String newLine= line.replaceAll("\\D+","");
+            String newLine= line.replaceAll("\\D+",""); // remove everything expect numbers
             if(newLine.length()>0) { //Let's not try and parse an int from an empty string
                 int parsedAge = Integer.parseInt(newLine);
                 this.setAge(parsedAge);
             }
-        }else if(questionType.equalsIgnoreCase("occupation=work")){
+        }else if(questionType.equalsIgnoreCase("occupation=work")){ // setters
             setOccupation("working");
         }else if(questionType.equalsIgnoreCase("occupation=student")){
             setOccupation("studying");
