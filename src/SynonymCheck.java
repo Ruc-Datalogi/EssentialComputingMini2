@@ -5,7 +5,7 @@
 public class SynonymCheck {
 
     String checkForSynonym(String line){ // check for synonyms or misspelling
-
+        // replacing words
         line = line.replaceAll("i am ", "i'm ");
         line = line.replaceAll("you are ", "you're ");
         line = line.replaceAll("feeling ", "doing ");

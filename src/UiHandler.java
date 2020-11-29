@@ -21,23 +21,23 @@ public class UiHandler extends Frame implements KeyListener {
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) { // for closing the window without crashing
                 dispose();
-                System.exit(0);
+                System.exit(0); // close the program
             }
         });
 
-        setLayout(new FlowLayout()); // "super" frame sets to FlowLayout
+        setLayout(new FlowLayout()); //  frame sets to FlowLayout
 
-        tfInput = new TextField(30);
-        taDisplay = new JTextArea(30, 37); // 5 rows, 40 columns
-        taDisplay.setLineWrap(true);
-        JScrollPane ta = new JScrollPane(taDisplay);
+        tfInput = new TextField(30); // input part
+        taDisplay = new JTextArea(30, 37); // the display
+        taDisplay.setLineWrap(true); // so the line wraps around
+        JScrollPane ta = new JScrollPane(taDisplay); // for scrolling i
 
         add(ta);
         add(new Label("Enter Text: "));
         add(tfInput);
 
-        taDisplay.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        taDisplay.setEditable(false);
+        taDisplay.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set the line border to black
+        taDisplay.setEditable(false); // so the user cannot edit in the display window
         tfInput.addKeyListener(this); // for listening to input
 
         setTitle("E.V.E v0.1"); // sets title
@@ -52,17 +52,18 @@ public class UiHandler extends Frame implements KeyListener {
      * The three different KeyEvent handlers
      */
     // Called back when a key has been typed (pressed and released)
+
     @Override
     public void keyPressed(KeyEvent e) { // get input from user and the display answer
         if (e.getKeyCode() == KeyEvent.VK_ENTER & (tfInput.getText().length() > 0)) {
             tfInput.setEditable(false); // while Eve is getting the answer the user cannot write anything
-            boolean oneshot = true;
-            Timer timer = new Timer();
-            TimerTask task = new Helper();
-            taDisplay.append("\n" + "User: " + tfInput.getText() + "\n");
+            boolean oneshot = true; // for the
+            Timer timer = new Timer(); // for making a small delay
+            TimerTask task = new Helper(); // for making Eve display . .. ... in the UI
+            taDisplay.append("\n" + "User: " + tfInput.getText() + "\n"); // get the user input
             timer.schedule(task, 100, 500);
-            outputSave = core.findAnswerToString(tfInput.getText());
-            tfInput.setText("");
+            outputSave = core.findAnswerToString(tfInput.getText()); // saving the reply from eve
+            tfInput.setText(""); // reset the inputfield
         }
     }
 
@@ -90,8 +91,6 @@ public class UiHandler extends Frame implements KeyListener {
                 stopdots = 2;
             }
             if (i == stopdots) {
-                System.out.println("fuck");
-                System.out.println(outputSave);
                 taDisplay.replaceRange("Eve: " + outputSave, taDisplay.getText().length() - 7, taDisplay.getText().length());
                 cancel();
                 tfInput.setEditable(true);

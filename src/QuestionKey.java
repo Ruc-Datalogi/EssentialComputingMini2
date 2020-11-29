@@ -16,7 +16,7 @@ public class QuestionKey {
 
     boolean hasKeyWord(String line){ // check for keyword
         for(String K : keyWords){ // check all keywords
-            if(line.matches("(.*)" +  K + "(.*)")){ //
+            if(line.matches("(.*)" +  K + "(.*)")){ // if the input matches a keyword
                 return true;
             }
         }
