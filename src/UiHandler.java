@@ -27,7 +27,7 @@ public class UiHandler extends Frame implements KeyListener {
 
         setLayout(new FlowLayout()); //  frame sets to FlowLayout
 
-        tfInput = new TextField(30); // input part
+        tfInput = new TextField(30); // input part of ui
         taDisplay = new JTextArea(30, 37); // the display
         taDisplay.setLineWrap(true); // so the line wraps around
         JScrollPane ta = new JScrollPane(taDisplay); // for scrolling i
